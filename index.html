@@ -3,10 +3,1638 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Globase</title>
+  <meta name="description" content="Globaseは、グローブの情報をひとつの場所に集め、自分に合ったグローブを自分で選べるようにするプラットフォームです。">
+
+  <title>Globase | 自分に合ったグローブを、自分で選ぶ。</title>
+
+  <style>
+    :root {
+      --teal: #078b8f;
+      --teal-dark: #06777a;
+      --teal-soft: #eef9f9;
+      --black: #111111;
+      --gray: #777b82;
+      --light-gray: #f5f6f8;
+      --line: #e7e8eb;
+      --white: #ffffff;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       Header
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .header-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 22px;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a {
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--teal);
+    }
+
+    .nav-download {
+      padding: 11px 21px;
+      border-radius: 999px;
+      color: white;
+      background: var(--teal);
+    }
+
+    .nav-download:hover {
+      color: white;
+      background: var(--teal-dark);
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+
+    .hero {
+      padding: 88px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 5.4vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+      font-weight: 800;
+      margin-bottom: 28px;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #555960;
+      max-width: 520px;
+      margin-bottom: 34px;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 26px;
+      border-radius: 999px;
+      color: white;
+      background: var(--teal);
+      font-size: 15px;
+      font-weight: 700;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .primary-button:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       Hero Slider
+    ========================= */
+
+    .hero-demo {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 660px;
+    }
+
+    .phone-stage {
+      width: min(100%, 470px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .phone-frame {
+      position: relative;
+      width: 315px;
+      height: 645px;
+      overflow: hidden;
+      border-radius: 48px;
+      background: #fff;
+      border: 8px solid #151515;
+      box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.13),
+        0 5px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      z-index: 5;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92px;
+      height: 25px;
+      border-radius: 20px;
+      background: #050505;
+      pointer-events: none;
+    }
+
+    .phone-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.45s cubic-bezier(.2,.75,.25,1);
+    }
+
+    .phone-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .phone-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 48%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 27px;
+      line-height: 1;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .slider-arrow:hover {
+      transform: translateY(-50%) scale(1.05);
+      background: #def4f4;
+    }
+
+    .slider-arrow.prev {
+      left: 0;
+    }
+
+    .slider-arrow.next {
+      right: 0;
+    }
+
+    .slider-dots {
+      display: flex;
+      gap: 9px;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .slider-dot {
+      width: 9px;
+      height: 9px;
+      border: 0;
+      border-radius: 50%;
+      background: #d8dbe0;
+      cursor: pointer;
+    }
+
+    .slider-dot.active {
+      background: var(--teal);
+    }
+
+    .swipe-note {
+      margin-top: 12px;
+      color: #8a8e94;
+      font-size: 12px;
+    }
+
+    /* =========================
+       Problem / Steps
+    ========================= */
+
+    .problem {
+      padding: 90px 0;
+      background:
+        linear-gradient(
+          135deg,
+          #f8fcfc 0%,
+          #f5f9fa 100%
+        );
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .section-kicker {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.25;
+      letter-spacing: -0.04em;
+      margin-bottom: 22px;
+    }
+
+    .section-text {
+      color: #60646a;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: "›";
+      position: absolute;
+      top: 29px;
+      right: -13px;
+      color: var(--teal);
+      font-size: 29px;
+      font-weight: 300;
+    }
+
+    .step-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaf7f7;
+      color: var(--teal);
+      font-size: 27px;
+      font-weight: 600;
+    }
+
+    .step h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: #777b82;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       Search
+    ========================= */
+
+    .search-section {
+      padding: 120px 0 65px;
+    }
+
+    .search-intro {
+      max-width: 700px;
+    }
+
+    .search-intro .section-title {
+      margin-bottom: 18px;
+    }
+
+    /* =========================
+       Features
+    ========================= */
+
+    .features {
+      padding: 55px 0 120px;
+    }
+
+    .feature-panel {
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      min-height: 620px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      overflow: hidden;
+      background: #fbfbfc;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-tabs {
+      background: white;
+      border-right: 1px solid var(--line);
+      padding: 36px 22px;
+    }
+
+    .feature-tab {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      border-radius: 18px;
+      padding: 24px 22px;
+      text-align: left;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .feature-tab:hover,
+    .feature-tab.active {
+      background: var(--teal-soft);
+    }
+
+    .feature-tab .tab-name {
+      display: block;
+      font-size: 21px;
+      font-weight: 750;
+      margin-bottom: 5px;
+    }
+
+    .feature-tab.active .tab-name {
+      color: var(--teal);
+    }
+
+    .feature-tab .tab-small {
+      color: #898d93;
+      font-size: 13px;
+    }
+
+    .feature-display {
+      position: relative;
+      overflow: hidden;
+      padding: 52px 60px 0;
+    }
+
+    .feature-content {
+      display: none;
+      grid-template-columns: 1fr 290px;
+      align-items: center;
+      gap: 40px;
+      height: 100%;
+    }
+
+    .feature-content.active {
+      display: grid;
+    }
+
+    .feature-copy h3 {
+      font-size: 34px;
+      line-height: 1.35;
+      letter-spacing: -0.035em;
+      margin-bottom: 20px;
+    }
+
+    .feature-copy p {
+      color: #686c72;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .feature-phone {
+      align-self: end;
+      width: 270px;
+      height: 545px;
+      border: 6px solid #171717;
+      border-bottom: 0;
+      border-radius: 38px 38px 0 0;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+    }
+
+    .feature-phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* =========================
+       Vision
+    ========================= */
+
+    .vision {
+      padding: 120px 0;
+      background:
+        linear-gradient(
+          135deg,
+          #f8fcfc 0%,
+          #f4f8f9 100%
+        );
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .vision-copy {
+      color: #555a60;
+      font-size: 17px;
+      line-height: 2;
+    }
+
+    .vision-copy p + p {
+      margin-top: 22px;
+    }
+
+    /* =========================
+       Name
+    ========================= */
+
+    .name-section {
+      padding: 75px 0;
+    }
+
+    .name-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .name-title {
+      font-size: 38px;
+      font-weight: 650;
+      letter-spacing: -0.035em;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    }
+
+    .name-copy {
+      border-left: 1px solid #cfd2d6;
+      padding-left: 60px;
+      color: #656970;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       Download
+    ========================= */
+
+    .download {
+      padding: 70px 0;
+      background: var(--teal-soft);
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .download-title {
+      color: var(--teal);
+      font-size: 34px;
+      line-height: 1.35;
+      letter-spacing: -0.035em;
+    }
+
+    .download-brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 270px;
+    }
+
+    .download-brand img {
+      width: 82px;
+      height: 82px;
+      border-radius: 19px;
+    }
+
+    .download-brand strong {
+      display: block;
+      color: var(--teal);
+      font-size: 27px;
+      margin-bottom: 3px;
+    }
+
+    .download-brand span {
+      color: #777b82;
+      font-size: 13px;
+    }
+
+    /* =========================
+       Contact
+    ========================= */
+
+    .contact {
+      padding: 85px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr auto;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: 34px;
+      line-height: 1.3;
+    }
+
+    .contact p {
+      border-left: 1px solid #d4d6da;
+      padding-left: 50px;
+      color: #696d73;
+    }
+
+    .outline-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 27px;
+      border: 1px solid var(--teal);
+      border-radius: 999px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .outline-button:hover {
+      background: var(--teal);
+      color: white;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      color: #74787e;
+      font-size: 12px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--black);
+      font-size: 16px;
+      font-weight: 750;
+    }
+
+    .footer-brand img {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* =========================
+       Mobile Feature Scroll
+    ========================= */
+
+    .mobile-features {
+      display: none;
+    }
+
+    /* =========================
+       Responsive
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .container {
+        width: min(calc(100% - 36px), var(--max-width));
+      }
+
+      nav a:not(.nav-download) {
+        display: none;
+      }
+
+      .header-inner {
+        height: 68px;
+      }
+
+      .brand {
+        font-size: 20px;
+      }
+
+      .brand img {
+        width: 38px;
+        height: 38px;
+      }
+
+      .nav-download {
+        padding: 9px 16px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 65px 0 80px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      h1 {
+        font-size: clamp(46px, 12vw, 68px);
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-demo {
+        min-height: 0;
+      }
+
+      .phone-frame {
+        width: min(78vw, 310px);
+        height: min(159vw, 635px);
+      }
+
+      .slider-arrow {
+        display: none;
+      }
+
+      .problem {
+        padding: 75px 0;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 45px;
+      }
+
+      .step:nth-child(2)::after {
+        display: none;
+      }
+
+      .search-section {
+        padding: 90px 0 40px;
+      }
+
+      .features {
+        display: none;
+      }
+
+      .mobile-features {
+        display: block;
+        padding-bottom: 90px;
+      }
+
+      .mobile-feature-nav-wrap {
+        position: sticky;
+        top: 68px;
+        z-index: 20;
+        background: rgba(255,255,255,0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .mobile-feature-nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        height: 58px;
+      }
+
+      .mobile-feature-nav span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: #8b8e94;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .mobile-feature-nav span.active {
+        color: var(--teal);
+        border-bottom-color: var(--teal);
+      }
+
+      .mobile-feature-item {
+        min-height: 820px;
+        padding: 65px 0 0;
+        overflow: hidden;
+      }
+
+      .mobile-feature-copy {
+        margin-bottom: 35px;
+      }
+
+      .mobile-feature-copy h3 {
+        font-size: 32px;
+        line-height: 1.35;
+        margin-bottom: 16px;
+      }
+
+      .mobile-feature-copy p {
+        color: #666a70;
+        line-height: 1.9;
+      }
+
+      .mobile-feature-image {
+        width: min(80vw, 330px);
+        margin: 0 auto;
+        border: 6px solid #161616;
+        border-bottom: 0;
+        border-radius: 40px 40px 0 0;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.11);
+      }
+
+      .vision {
+        padding: 90px 0;
+      }
+
+      .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .name-section {
+        padding: 65px 0;
+      }
+
+      .name-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .name-title {
+        font-size: 34px;
+      }
+
+      .name-copy {
+        padding-left: 25px;
+      }
+
+      .download-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .download-brand {
+        min-width: 0;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .contact p {
+        padding-left: 25px;
+      }
+
+      .outline-button {
+        justify-self: start;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .eyebrow {
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 14px;
+      }
+
+      .step-icon {
+        width: 62px;
+        height: 62px;
+      }
+
+      .step h3 {
+        font-size: 17px;
+      }
+
+      .step p {
+        font-size: 12px;
+      }
+
+      .download-title {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Globase</h1>
-  <p>Official website for Globase.</p>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <img src="assets/app-icon.png" alt="Globase">
+        <span>Globase</span>
+      </a>
+
+      <nav>
+        <a href="#home">ホーム</a>
+        <a href="#features">機能</a>
+        <a href="#vision">私たちについて</a>
+        <a href="#contact">お問い合わせ</a>
+        <a
+          class="nav-download"
+          href="https://apps.apple.com/jp/app/globase/id6755428184"
+          target="_blank"
+          rel="noopener"
+        >
+          App Storeで見る →
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="eyebrow">グローブ選びを、もっとシンプルに。</div>
+
+          <h1>
+            自分に合った<br>
+            グローブを、<br>
+            自分で選ぶ。
+          </h1>
+
+          <p class="hero-description">
+            グローブの情報をひとつの場所に集め、<br>
+            知る・考える・比べる・選ぶをサポートする<br>
+            グローブのプラットフォームです。
+          </p>
+
+          <a
+            class="primary-button"
+            href="https://apps.apple.com/jp/app/globase/id6755428184"
+            target="_blank"
+            rel="noopener"
+          >
+            App Storeで見る →
+          </a>
+        </div>
+
+        <div class="hero-demo">
+
+          <button class="slider-arrow prev" aria-label="前の画面">‹</button>
+
+          <div class="phone-stage">
+            <div class="phone-frame">
+              <div class="phone-track" id="phoneTrack">
+
+                <div class="phone-slide">
+                  <img src="assets/search-home.png" alt="Globase 検索ホーム">
+                </div>
+
+                <div class="phone-slide">
+                  <img src="assets/search-size.png" alt="サイズ感から検索">
+                </div>
+
+                <div class="phone-slide">
+                  <img src="assets/search-results.png" alt="検索結果">
+                </div>
+
+                <div class="phone-slide">
+                  <img src="assets/search-detail.png" alt="グローブ詳細">
+                </div>
+
+              </div>
+            </div>
+
+            <div class="slider-dots">
+              <button class="slider-dot active" data-slide="0" aria-label="1"></button>
+              <button class="slider-dot" data-slide="1" aria-label="2"></button>
+              <button class="slider-dot" data-slide="2" aria-label="3"></button>
+              <button class="slider-dot" data-slide="3" aria-label="4"></button>
+            </div>
+
+            <div class="swipe-note">
+              スワイプしてアプリの画面を確認できます
+            </div>
+          </div>
+
+          <button class="slider-arrow next" aria-label="次の画面">›</button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem">
+      <div class="container problem-grid">
+
+        <div>
+          <div class="section-kicker">Why Globase</div>
+
+          <h2 class="section-title">
+            選択肢が増えたからこそ、<br>
+            選ぶのは難しい。
+          </h2>
+
+          <p class="section-text">
+            メーカーやモデルが増え、情報も分散し、
+            グローブ選びは以前より複雑になっています。
+            Globaseは、そんなグローブ選びを整理し、
+            自分に合った一つを見つけるための道筋をつくります。
+          </p>
+        </div>
+
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-icon">知</div>
+            <h3>知る</h3>
+            <p>
+              グローブにはどんな<br>
+              違いがあるのかを知る。
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">考</div>
+            <h3>考える</h3>
+            <p>
+              自分が重視する項目や<br>
+              条件を整理する。
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">比</div>
+            <h3>比べる</h3>
+            <p>
+              さまざまなグローブを<br>
+              比較する。
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">選</div>
+            <h3>選ぶ</h3>
+            <p>
+              自分なりの理由で<br>
+              最適なグローブを選ぶ。
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Search -->
+    <section class="search-section" id="features">
+      <div class="container">
+        <div class="search-intro">
+          <div class="section-kicker">Search</div>
+
+          <h2 class="section-title">
+            自分の基準で、<br>
+            グローブを探す。
+          </h2>
+
+          <p class="section-text">
+            ポジション、サイズ感、価格、メーカー、型番など、
+            さまざまな条件から、自分に合うグローブを検索できます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desktop Features -->
+    <section class="features">
+      <div class="container">
+
+        <div class="feature-panel">
+
+          <div class="feature-tabs">
+
+            <button class="feature-tab active" data-feature="lab">
+              <span class="tab-name">Lab</span>
+              <span class="tab-small">グローブをもっと知る</span>
+            </button>
+
+            <button class="feature-tab" data-feature="order">
+              <span class="tab-name">Order</span>
+              <span class="tab-small">オーダーを知る</span>
+            </button>
+
+            <button class="feature-tab" data-feature="link">
+              <span class="tab-name">Link</span>
+              <span class="tab-small">グローブと情報をつなぐ</span>
+            </button>
+
+          </div>
+
+          <div class="feature-display">
+
+            <div class="feature-content active" data-content="lab">
+              <div class="feature-copy">
+                <div class="section-kicker">Lab</div>
+                <h3>グローブをもっと知る。</h3>
+                <p>
+                  選び方の基礎知識、ポジションごとの特徴、
+                  購入時期の考え方など、
+                  グローブに関する知識を分かりやすくまとめています。
+                  知ることで、自分に合った選択へつなげます。
+                </p>
+              </div>
+
+              <div class="feature-phone">
+                <img src="assets/lab.png" alt="Globase Lab">
+              </div>
+            </div>
+
+            <div class="feature-content" data-content="order">
+              <div class="feature-copy">
+                <div class="section-kicker">Order</div>
+                <h3>自分だけのグローブを探す。</h3>
+                <p>
+                  各メーカーのオーダー情報をまとめて確認できます。
+                  既製品だけではなく、
+                  自分のこだわりを形にする選択肢へつなげます。
+                </p>
+              </div>
+
+              <div class="feature-phone">
+                <img src="assets/order.png" alt="Globase Order">
+              </div>
+            </div>
+
+            <div class="feature-content" data-content="link">
+              <div class="feature-copy">
+                <div class="section-kicker">Link</div>
+                <h3>グローブと、必要な情報をつなぐ。</h3>
+                <p>
+                  リーグやカテゴリーごとのルールなど、
+                  グローブを使うために必要な情報へアクセスできます。
+                  グローブを探すだけで終わらない場所を目指しています。
+                </p>
+              </div>
+
+              <div class="feature-phone">
+                <img src="assets/link.png" alt="Globase Link">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile Features -->
+    <section class="mobile-features">
+
+      <div class="mobile-feature-nav-wrap">
+        <div class="container mobile-feature-nav">
+          <span class="active" data-mobile-nav="lab">Lab</span>
+          <span data-mobile-nav="order">Order</span>
+          <span data-mobile-nav="link">Link</span>
+        </div>
+      </div>
+
+      <article class="mobile-feature-item" data-mobile-feature="lab">
+        <div class="container">
+
+          <div class="mobile-feature-copy">
+            <div class="section-kicker">Lab</div>
+            <h3>グローブをもっと知る。</h3>
+            <p>
+              選び方の基礎知識やポジションごとの特徴など、
+              グローブに関する知識を分かりやすくまとめています。
+            </p>
+          </div>
+
+          <div class="mobile-feature-image">
+            <img src="assets/lab.png" alt="Globase Lab">
+          </div>
+
+        </div>
+      </article>
+
+      <article class="mobile-feature-item" data-mobile-feature="order">
+        <div class="container">
+
+          <div class="mobile-feature-copy">
+            <div class="section-kicker">Order</div>
+            <h3>自分だけのグローブを探す。</h3>
+            <p>
+              各メーカーのオーダー情報をまとめて確認し、
+              自分のこだわりを形にする選択肢へつなげます。
+            </p>
+          </div>
+
+          <div class="mobile-feature-image">
+            <img src="assets/order.png" alt="Globase Order">
+          </div>
+
+        </div>
+      </article>
+
+      <article class="mobile-feature-item" data-mobile-feature="link">
+        <div class="container">
+
+          <div class="mobile-feature-copy">
+            <div class="section-kicker">Link</div>
+            <h3>グローブと、必要な情報をつなぐ。</h3>
+            <p>
+              リーグやカテゴリーごとのルールなど、
+              グローブを使うために必要な情報へアクセスできます。
+            </p>
+          </div>
+
+          <div class="mobile-feature-image">
+            <img src="assets/link.png" alt="Globase Link">
+          </div>
+
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Vision -->
+    <section class="vision" id="vision">
+      <div class="container vision-grid">
+
+        <div>
+          <div class="section-kicker">Our Vision</div>
+
+          <h2 class="section-title">
+            グローブの情報が<br>
+            集まる場所へ。
+          </h2>
+        </div>
+
+        <div class="vision-copy">
+          <p>
+            商品を探す。知識を得る。オーダーを知る。
+            ルールを確認する。
+            そしてこれから、ショップやメーカーともつながっていく。
+          </p>
+
+          <p>
+            Globaseは、グローブに関わる情報や人をつなぎ、
+            「グローブのことなら、まずGlobaseを見る」
+            場所を目指します。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Name -->
+    <section class="name-section">
+      <div class="container name-grid">
+
+        <div class="name-title">
+          Glove + Base
+        </div>
+
+        <div class="name-copy">
+          グローブを知るための基礎。<br>
+          グローブの情報が集まる基地。<br>
+          Globaseは、グローブを選ぶための「Base」を目指しています。
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="download">
+      <div class="container download-grid">
+
+        <h2 class="download-title">
+          自分に合ったグローブを、<br>
+          自分で選ぼう。
+        </h2>
+
+        <div class="download-brand">
+          <img src="assets/app-icon.png" alt="Globase">
+
+          <div>
+            <strong>Globase</strong>
+            <span>グローブ選びを、もっとシンプルに。</span>
+          </div>
+        </div>
+
+        <a
+          class="primary-button"
+          href="https://apps.apple.com/jp/app/globase/id6755428184"
+          target="_blank"
+          rel="noopener"
+        >
+          App Storeで見る →
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2>お問い合わせ</h2>
+        </div>
+
+        <p>
+          Globaseに関するお問い合わせ、
+          掲載・連携についてのご相談など、
+          お気軽にご連絡ください。
+        </p>
+
+        <a
+          class="outline-button"
+          href="mailto:globase.app@gmail.com"
+        >
+          お問い合わせする →
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <img src="assets/app-icon.png" alt="">
+        Globase
+      </div>
+
+      <div class="footer-links">
+        <a
+          href="https://docs.google.com/document/d/e/2PACX-1vTY094v4F2fD1uxsx8N_jRpAB0c4jQYnEr4jsDe9mDElmjoCioluQuqg4OjL1Mx4MaJ23WVPg5CEpjh/pub"
+          target="_blank"
+          rel="noopener"
+        >
+          プライバシーポリシー
+        </a>
+
+        <a href="#contact">
+          お問い合わせ
+        </a>
+
+        <span>© 2026 Globase.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    /* =========================
+       Hero Slider
+    ========================= */
+
+    const track = document.getElementById("phoneTrack");
+    const dots = [...document.querySelectorAll(".slider-dot")];
+    const prev = document.querySelector(".slider-arrow.prev");
+    const next = document.querySelector(".slider-arrow.next");
+
+    let currentSlide = 0;
+    const slideCount = 4;
+
+    function showSlide(index) {
+      currentSlide = (index + slideCount) % slideCount;
+
+      track.style.transform =
+        `translateX(-${currentSlide * 100}%)`;
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle(
+          "active",
+          index === currentSlide
+        );
+      });
+    }
+
+    prev.addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+    });
+
+    next.addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        showSlide(Number(dot.dataset.slide));
+      });
+    });
+
+    /* Swipe */
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener(
+      "touchstart",
+      event => {
+        touchStartX = event.changedTouches[0].screenX;
+      },
+      { passive: true }
+    );
+
+    track.addEventListener(
+      "touchend",
+      event => {
+        touchEndX = event.changedTouches[0].screenX;
+
+        const distance = touchStartX - touchEndX;
+
+        if (Math.abs(distance) < 40) return;
+
+        if (distance > 0) {
+          showSlide(currentSlide + 1);
+        } else {
+          showSlide(currentSlide - 1);
+        }
+      },
+      { passive: true }
+    );
+
+    /* =========================
+       Desktop Feature Hover
+    ========================= */
+
+    const featureTabs =
+      [...document.querySelectorAll(".feature-tab")];
+
+    const featureContents =
+      [...document.querySelectorAll(".feature-content")];
+
+    function showFeature(name) {
+      featureTabs.forEach(tab => {
+        tab.classList.toggle(
+          "active",
+          tab.dataset.feature === name
+        );
+      });
+
+      featureContents.forEach(content => {
+        content.classList.toggle(
+          "active",
+          content.dataset.content === name
+        );
+      });
+    }
+
+    featureTabs.forEach(tab => {
+      tab.addEventListener("mouseenter", () => {
+        showFeature(tab.dataset.feature);
+      });
+
+      tab.addEventListener("focus", () => {
+        showFeature(tab.dataset.feature);
+      });
+
+      tab.addEventListener("click", () => {
+        showFeature(tab.dataset.feature);
+      });
+    });
+
+    /* =========================
+       Mobile Scroll-linked tabs
+    ========================= */
+
+    const mobileItems =
+      [...document.querySelectorAll(
+        "[data-mobile-feature]"
+      )];
+
+    const mobileNavItems =
+      [...document.querySelectorAll(
+        "[data-mobile-nav]"
+      )];
+
+    if ("IntersectionObserver" in window) {
+
+      const observer = new IntersectionObserver(
+        entries => {
+
+          const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort(
+              (a, b) =>
+                b.intersectionRatio -
+                a.intersectionRatio
+            );
+
+          if (!visible.length) return;
+
+          const activeName =
+            visible[0].target.dataset.mobileFeature;
+
+          mobileNavItems.forEach(item => {
+            item.classList.toggle(
+              "active",
+              item.dataset.mobileNav === activeName
+            );
+          });
+        },
+        {
+          threshold: [0.25, 0.45, 0.6]
+        }
+      );
+
+      mobileItems.forEach(item => {
+        observer.observe(item);
+      });
+    }
+
+    mobileNavItems.forEach(item => {
+      item.addEventListener("click", () => {
+
+        const target =
+          document.querySelector(
+            `[data-mobile-feature="${item.dataset.mobileNav}"]`
+          );
+
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
