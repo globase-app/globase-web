@@ -212,29 +212,15 @@
 
     .phone-frame {
       position: relative;
-      width: 315px;
-      height: 645px;
+      width: 286px;
+      aspect-ratio: 1206 / 2622;
       overflow: hidden;
-      border-radius: 48px;
+      border-radius: 38px;
       background: #fff;
-      border: 8px solid #151515;
+      border: 5px solid #151515;
       box-shadow:
         0 30px 60px rgba(0, 0, 0, 0.13),
         0 5px 16px rgba(0, 0, 0, 0.08);
-    }
-
-    .phone-frame::before {
-      content: "";
-      position: absolute;
-      z-index: 5;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 92px;
-      height: 25px;
-      border-radius: 20px;
-      background: #050505;
-      pointer-events: none;
     }
 
     .phone-track {
@@ -255,7 +241,8 @@
     .phone-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background: #fff;
     }
 
     .slider-arrow {
@@ -405,33 +392,17 @@
     }
 
     /* =========================
-       Search
-    ========================= */
-
-    .search-section {
-      padding: 120px 0 65px;
-    }
-
-    .search-intro {
-      max-width: 700px;
-    }
-
-    .search-intro .section-title {
-      margin-bottom: 18px;
-    }
-
-    /* =========================
        Features
     ========================= */
 
     .features {
-      padding: 55px 0 120px;
+      padding: 90px 0 120px;
     }
 
     .feature-panel {
       display: grid;
       grid-template-columns: 330px 1fr;
-      min-height: 620px;
+      min-height: 500px;
       border: 1px solid var(--line);
       border-radius: 30px;
       overflow: hidden;
@@ -481,12 +452,12 @@
     .feature-display {
       position: relative;
       overflow: hidden;
-      padding: 52px 60px 0;
+      padding: 42px 60px 0;
     }
 
     .feature-content {
       display: none;
-      grid-template-columns: 1fr 290px;
+      grid-template-columns: 1fr 260px;
       align-items: center;
       gap: 40px;
       height: 100%;
@@ -511,11 +482,11 @@
 
     .feature-phone {
       align-self: end;
-      width: 270px;
-      height: 545px;
-      border: 6px solid #171717;
+      width: 250px;
+      height: 430px;
+      border: 5px solid #171717;
       border-bottom: 0;
-      border-radius: 38px 38px 0 0;
+      border-radius: 34px 34px 0 0;
       overflow: hidden;
       background: white;
       box-shadow: 0 12px 35px rgba(0,0,0,0.12);
@@ -523,8 +494,8 @@
 
     .feature-phone img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       object-position: top;
     }
 
@@ -788,8 +759,8 @@
       }
 
       .phone-frame {
-        width: min(78vw, 310px);
-        height: min(159vw, 635px);
+        width: min(74vw, 286px);
+        height: auto;
       }
 
       .slider-arrow {
@@ -812,10 +783,6 @@
 
       .step:nth-child(2)::after {
         display: none;
-      }
-
-      .search-section {
-        padding: 90px 0 40px;
       }
 
       .features {
@@ -860,8 +827,8 @@
       }
 
       .mobile-feature-item {
-        min-height: 820px;
-        padding: 65px 0 0;
+        min-height: 0;
+        padding: 65px 0 70px;
         overflow: hidden;
       }
 
@@ -881,13 +848,22 @@
       }
 
       .mobile-feature-image {
-        width: min(80vw, 330px);
+        width: min(72vw, 280px);
+        height: 430px;
         margin: 0 auto;
-        border: 6px solid #161616;
+        border: 5px solid #161616;
         border-bottom: 0;
-        border-radius: 40px 40px 0 0;
+        border-radius: 36px 36px 0 0;
         overflow: hidden;
+        background: #fff;
         box-shadow: 0 20px 50px rgba(0,0,0,0.11);
+      }
+
+      .mobile-feature-image img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: top;
       }
 
       .vision {
@@ -1025,7 +1001,7 @@
       <div class="container hero-grid">
 
         <div>
-          <div class="eyebrow">グローブ選びを、もっとシンプルに。</div>
+          <div class="eyebrow">Search</div>
 
           <h1>
             自分に合った<br>
@@ -1034,9 +1010,9 @@
           </h1>
 
           <p class="hero-description">
-            グローブの情報をひとつの場所に集め、<br>
-            知る・考える・比べる・選ぶをサポートする<br>
-            グローブのプラットフォームです。
+            ポジション、サイズ感、価格、メーカー、型番など、<br>
+            自分の基準からグローブを探せます。<br>
+            知る・考える・比べる・選ぶをサポートします。
           </p>
 
           <a
@@ -1117,7 +1093,7 @@
         <div class="steps">
 
           <div class="step">
-            <div class="step-icon">知</div>
+            <div class="step-icon">01</div>
             <h3>知る</h3>
             <p>
               グローブにはどんな<br>
@@ -1126,7 +1102,7 @@
           </div>
 
           <div class="step">
-            <div class="step-icon">考</div>
+            <div class="step-icon">02</div>
             <h3>考える</h3>
             <p>
               自分が重視する項目や<br>
@@ -1135,7 +1111,7 @@
           </div>
 
           <div class="step">
-            <div class="step-icon">比</div>
+            <div class="step-icon">03</div>
             <h3>比べる</h3>
             <p>
               さまざまなグローブを<br>
@@ -1144,7 +1120,7 @@
           </div>
 
           <div class="step">
-            <div class="step-icon">選</div>
+            <div class="step-icon">04</div>
             <h3>選ぶ</h3>
             <p>
               自分なりの理由で<br>
@@ -1156,27 +1132,8 @@
       </div>
     </section>
 
-    <!-- Search -->
-    <section class="search-section" id="features">
-      <div class="container">
-        <div class="search-intro">
-          <div class="section-kicker">Search</div>
-
-          <h2 class="section-title">
-            自分の基準で、<br>
-            グローブを探す。
-          </h2>
-
-          <p class="section-text">
-            ポジション、サイズ感、価格、メーカー、型番など、
-            さまざまな条件から、自分に合うグローブを検索できます。
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- Desktop Features -->
-    <section class="features">
+    <section class="features" id="features">
       <div class="container">
 
         <div class="feature-panel">
