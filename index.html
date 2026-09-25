@@ -2332,6 +2332,89 @@
 }
 </style>
 
+
+<style>
+/* =========================================================
+   Hero final balance
+   - Keep the tighter top
+   - Make line 1 genuinely wider
+   - Restore the deeper phone crop
+   ========================================================= */
+@media (min-width: 901px) {
+  .hero {
+    padding-top: 34px !important;
+    padding-bottom: 92px !important;
+    min-height: 720px !important;
+    overflow: hidden !important;
+  }
+
+  .hero-grid {
+    min-height: 660px !important;
+  }
+
+  /* Stronger horizontal impact without moving the phone into line 1. */
+  .hero-title {
+    width: calc(100vw - 46px) !important;
+    max-width: none !important;
+  }
+
+  .hero-title span:first-child {
+    font-size: clamp(80px, 7.15vw, 110px) !important;
+    line-height: .96 !important;
+    letter-spacing: -0.06em !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-title span:nth-child(2) {
+    font-size: clamp(78px, 6.65vw, 104px) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.055em !important;
+    margin-top: 20px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Restore the taller visible phone area from the earlier composition. */
+  .hero-demo {
+    top: 205px !important;
+    left: 545px !important;
+    width: 510px !important;
+    min-height: 610px !important;
+  }
+
+  .hero-demo .phone-stage {
+    width: 465px !important;
+    max-width: none !important;
+  }
+
+  .hero-demo .phone-frame {
+    width: 315px !important;
+  }
+
+  /* Keep carousel controls visible immediately. */
+  .hero-demo .slider-arrow {
+    top: 42% !important;
+  }
+
+  .hero-description-group {
+    margin-top: 30px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .hero-title span:first-child {
+    font-size: clamp(72px, 6.55vw, 92px) !important;
+  }
+
+  .hero-title span:nth-child(2) {
+    font-size: clamp(70px, 6.15vw, 88px) !important;
+  }
+
+  .hero-demo {
+    left: 500px !important;
+  }
+}
+</style>
+
 </body>
 </html><style>
 /* Final desktop positioning adjustment: keep phone below first headline line, move it left. */
