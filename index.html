@@ -2196,6 +2196,81 @@
 }
 </style>
 
+
+<style>
+/* =========================================================
+   Hero typography emphasis
+   Make line 1 visually own the viewport width.
+   ========================================================= */
+@media (min-width: 901px) {
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero-title {
+    margin-right: -20px;
+  }
+
+  .hero-title span:first-child {
+    font-size: clamp(72px, 6.25vw, 96px);
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+    transform-origin: left center;
+  }
+
+  .hero-title span:nth-child(2) {
+    font-size: clamp(72px, 6.25vw, 96px);
+    line-height: 1.02;
+    letter-spacing: -0.065em;
+    margin-top: 5px;
+  }
+
+  /* Phone starts beside line 2, never beside line 1. */
+  .hero-demo {
+    top: 210px;
+    left: 545px;
+    width: 500px;
+  }
+
+  .hero-demo .phone-stage {
+    width: 455px;
+  }
+
+  .hero-demo .phone-frame {
+    width: 315px;
+  }
+
+  /* Bring arrows closer to the phone so carousel is obvious. */
+  .hero-demo .slider-arrow.prev,
+  .hero-demo .slider-arrow.left,
+  .hero-demo .slider-arrow:first-of-type {
+    left: 22px;
+  }
+
+  .hero-demo .slider-arrow.next,
+  .hero-demo .slider-arrow.right,
+  .hero-demo .slider-arrow:last-of-type {
+    right: 22px;
+  }
+
+  .hero-description-group {
+    margin-top: 34px;
+  }
+}
+
+/* At narrower desktop widths, preserve the two-line composition. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .hero-title span:first-child,
+  .hero-title span:nth-child(2) {
+    font-size: clamp(68px, 6.05vw, 82px);
+  }
+
+  .hero-demo {
+    left: 500px;
+  }
+}
+</style>
+
 </body>
 </html><style>
 /* Final desktop positioning adjustment: keep phone below first headline line, move it left. */
