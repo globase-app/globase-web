@@ -2652,3 +2652,36 @@
   }
 }
 </style>
+<style>
+/* Final copy + feature tab cleanup */
+.hero-benefit {
+  max-width: none !important;
+  margin: 0 !important;
+  color: #777b81 !important;
+  font-size: 18px !important;
+  line-height: 1.85 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+@media (min-width: 901px) {
+  /* Selected state: horizontal rule only. */
+  .feature-tab.active::before,
+  .feature-tab.is-active::before,
+  .features-tab.active::before,
+  .features-tab.is-active::before,
+  .feature-nav button.active::before,
+  .feature-nav button.is-active::before,
+  .feature-nav button[aria-selected="true"]::before {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-benefit {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+  }
+}
+</style>
