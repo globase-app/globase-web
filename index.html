@@ -2415,6 +2415,111 @@
 }
 </style>
 
+
+<style>
+/* =========================================================
+   Hero copy + Features navigation polish
+   ========================================================= */
+
+/* Supporting Hero sentence matches the main description. */
+.hero-benefit {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+/* Desktop: replace the large selected box with a clean editorial tab rail. */
+@media (min-width: 901px) {
+  .feature-tabs,
+  .features-tabs,
+  .feature-nav {
+    padding: 42px 22px 42px 24px !important;
+  }
+
+  .feature-tab,
+  .features-tab,
+  .feature-nav button {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 72px !important;
+    padding: 0 24px !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #111 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    transition: color .2s ease, transform .2s ease !important;
+  }
+
+  .feature-tab::after,
+  .features-tab::after,
+  .feature-nav button::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 24px !important;
+    right: 24px !important;
+    bottom: 0 !important;
+    height: 1px !important;
+    background: #e6e8e9 !important;
+  }
+
+  .feature-tab:hover,
+  .features-tab:hover,
+  .feature-nav button:hover {
+    color: var(--teal) !important;
+    transform: translateX(3px) !important;
+  }
+
+  .feature-tab.active,
+  .feature-tab.is-active,
+  .features-tab.active,
+  .features-tab.is-active,
+  .feature-nav button.active,
+  .feature-nav button.is-active,
+  .feature-nav button[aria-selected="true"] {
+    color: var(--teal) !important;
+    background: transparent !important;
+  }
+
+  .feature-tab.active::before,
+  .feature-tab.is-active::before,
+  .features-tab.active::before,
+  .features-tab.is-active::before,
+  .feature-nav button.active::before,
+  .feature-nav button.is-active::before,
+  .feature-nav button[aria-selected="true"]::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 18px !important;
+    bottom: 18px !important;
+    width: 4px !important;
+    border-radius: 999px !important;
+    background: var(--teal) !important;
+  }
+
+  .feature-tab.active::after,
+  .feature-tab.is-active::after,
+  .features-tab.active::after,
+  .features-tab.is-active::after,
+  .feature-nav button.active::after,
+  .feature-nav button.is-active::after,
+  .feature-nav button[aria-selected="true"]::after {
+    height: 2px !important;
+    background: var(--teal) !important;
+  }
+}
+</style>
+
 </body>
 </html><style>
 /* Final desktop positioning adjustment: keep phone below first headline line, move it left. */
