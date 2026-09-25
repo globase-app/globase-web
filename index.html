@@ -1187,6 +1187,119 @@
         font-size: 27px;
       }
     }
+
+
+    /* ===== Final layout refinements ===== */
+    .step-icon {
+      background: #cfeeee;
+      color: var(--teal-dark);
+      box-shadow: inset 0 0 0 1px rgba(6, 128, 133, .10);
+    }
+
+    .feature-tab {
+      border: 1px solid transparent;
+      padding: 25px 22px;
+      margin-bottom: 12px;
+    }
+
+    .feature-tab:hover {
+      border-color: #d7eaea;
+      background: #f3fafa;
+    }
+
+    .feature-tab.active {
+      border-color: rgba(6, 128, 133, .24);
+      background: var(--teal-soft);
+      box-shadow: inset 4px 0 0 var(--teal);
+    }
+
+    .feature-tab .tab-name {
+      margin-bottom: 0;
+      font-size: 22px;
+    }
+
+    .feature-content {
+      min-height: 458px;
+    }
+
+    .feature-copy {
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .feature-description span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .feature-heading-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .feature-heading-line + .feature-heading-line::before {
+      content: none;
+    }
+
+    @media (min-width: 901px) {
+      .hero-grid {
+        display: block;
+        position: relative;
+        min-height: 610px;
+      }
+
+      .hero-grid > div:first-child {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title {
+        max-width: none;
+        padding-right: 0;
+      }
+
+      .hero-demo {
+        position: absolute;
+        right: 10px;
+        top: 92px;
+        z-index: 1;
+      }
+
+      .hero-description {
+        max-width: 560px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .mobile-feature-item {
+        min-height: 650px;
+      }
+
+      .mobile-feature-copy {
+        min-height: 250px;
+        margin-bottom: 24px;
+      }
+
+      .mobile-feature-nav button {
+        min-height: 58px;
+        border-right: 1px solid var(--line);
+      }
+
+      .mobile-feature-nav button:last-child {
+        border-right: 0;
+      }
+
+      .mobile-feature-nav button.active {
+        box-shadow: inset 0 -3px 0 var(--teal);
+      }
+
+      .feature-description span {
+        white-space: nowrap;
+      }
+    }
+
   </style>
 </head>
 
@@ -1211,7 +1324,7 @@
           target="_blank"
           rel="noopener"
         >
-          <span class="desktop-download-label">App Storeで見る →</span>
+          <span class="desktop-download-label">App Store</span>
           <span class="mobile-download-label">App Store</span>
         </a>
         <button class="mobile-menu-button" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
@@ -1256,7 +1369,7 @@
             target="_blank"
             rel="noopener"
           >
-            App Storeで見る →
+            App Store
           </a>
         </div>
 
@@ -1331,8 +1444,8 @@
             <div class="step-icon">01</div>
             <h3>知る</h3>
             <p>
-              グローブにはどんな<br>
-              違いがあるのかを知る。
+              種類や特徴を<br>
+              理解する。
             </p>
           </div>
 
@@ -1340,8 +1453,8 @@
             <div class="step-icon">02</div>
             <h3>考える</h3>
             <p>
-              自分が重視する項目や<br>
-              条件を整理する。
+              自分に必要な条件を<br>
+              整理する。
             </p>
           </div>
 
@@ -1349,8 +1462,8 @@
             <div class="step-icon">03</div>
             <h3>比べる</h3>
             <p>
-              さまざまなグローブを<br>
-              比較する。
+              違いを見ながら<br>
+              候補を絞る。
             </p>
           </div>
 
@@ -1358,8 +1471,8 @@
             <div class="step-icon">04</div>
             <h3>選ぶ</h3>
             <p>
-              自分なりの理由で<br>
-              最適なグローブを選ぶ。
+              納得できる一つを<br>
+              見つける。
             </p>
           </div>
 
@@ -1377,17 +1490,14 @@
 
             <button class="feature-tab active" data-feature="lab">
               <span class="tab-name">Lab</span>
-              <span class="tab-small">グローブをもっと知る</span>
             </button>
 
             <button class="feature-tab" data-feature="order">
               <span class="tab-name">Order</span>
-              <span class="tab-small">オーダーを知る</span>
             </button>
 
             <button class="feature-tab" data-feature="link">
               <span class="tab-name">Link</span>
-              <span class="tab-small">グローブと情報をつなぐ</span>
             </button>
 
           </div>
@@ -1398,11 +1508,11 @@
               <div class="feature-copy">
                 <div class="section-kicker">Lab</div>
                 <h3><span class="feature-heading-line">グローブをもっと知る。</span></h3>
-                <p>
-                  選び方の基礎知識、ポジションごとの特徴、
-                  購入時期の考え方など、
-                  グローブに関する知識を分かりやすくまとめています。
-                  知ることで、自分に合った選択へつなげます。
+                <p class="feature-description">
+                  <span>選び方の基礎知識や</span>
+                  <span>ポジションごとの特徴など、</span>
+                  <span>グローブに関する知識を</span>
+                  <span>分かりやすくまとめています。</span>
                 </p>
               </div>
 
@@ -1414,11 +1524,12 @@
             <div class="feature-content" data-content="order">
               <div class="feature-copy">
                 <div class="section-kicker">Order</div>
-                <h3><span class="feature-heading-line">自分だけのグローブを</span><span class="feature-heading-line">探す。</span></h3>
-                <p>
-                  各メーカーのオーダー情報をまとめて確認できます。
-                  既製品だけではなく、
-                  自分のこだわりを形にする選択肢へつなげます。
+                <h3><span class="feature-heading-line">自分だけのグローブ</span><span class="feature-heading-line">を探す。</span></h3>
+                <p class="feature-description">
+                  <span>各メーカーのオーダー情報を</span>
+                  <span>まとめて確認できます。</span>
+                  <span>自分のこだわりを形にする</span>
+                  <span>選択肢を探せます。</span>
                 </p>
               </div>
 
@@ -1431,10 +1542,11 @@
               <div class="feature-copy">
                 <div class="section-kicker">Link</div>
                 <h3><span class="feature-heading-line">グローブと、</span><span class="feature-heading-line">必要な情報をつなぐ。</span></h3>
-                <p>
-                  リーグやカテゴリーごとのルールなど、
-                  グローブを使うために必要な情報へアクセスできます。
-                  グローブを探すだけで終わらない場所を目指しています。
+                <p class="feature-description">
+                  <span>リーグやカテゴリーごとの</span>
+                  <span>ルールなど、</span>
+                  <span>グローブを使うために必要な</span>
+                  <span>情報を確認できます。</span>
                 </p>
               </div>
 
@@ -1462,7 +1574,7 @@
             <div class="mobile-feature-copy">
               <div class="section-kicker">Lab</div>
               <h3><span class="feature-heading-line">グローブをもっと知る。</span></h3>
-              <p>選び方の基礎知識やポジションごとの特徴など、グローブに関する知識を分かりやすくまとめています。</p>
+              <p class="feature-description"><span>選び方の基礎知識や</span><span>ポジションごとの特徴など、</span><span>グローブに関する知識を</span><span>分かりやすくまとめています。</span></p>
             </div>
             <div class="mobile-feature-image"><img src="assets/lab.png" alt="Globase Lab" loading="lazy" decoding="async"></div>
           </article>
@@ -1470,8 +1582,8 @@
           <article class="mobile-feature-item" data-mobile-feature="order">
             <div class="mobile-feature-copy">
               <div class="section-kicker">Order</div>
-              <h3><span class="feature-heading-line">自分だけのグローブを</span><span class="feature-heading-line">探す。</span></h3>
-              <p>各メーカーのオーダー情報をまとめて確認し、自分のこだわりを形にする選択肢へつなげます。</p>
+              <h3><span class="feature-heading-line">自分だけのグローブ</span><span class="feature-heading-line">を探す。</span></h3>
+              <p class="feature-description"><span>各メーカーのオーダー情報を</span><span>まとめて確認できます。</span><span>自分のこだわりを形にする</span><span>選択肢を探せます。</span></p>
             </div>
             <div class="mobile-feature-image"><img src="assets/order.png" alt="Globase Order" loading="lazy" decoding="async"></div>
           </article>
@@ -1480,7 +1592,7 @@
             <div class="mobile-feature-copy">
               <div class="section-kicker">Link</div>
               <h3><span class="feature-heading-line">グローブと、</span><span class="feature-heading-line">必要な情報をつなぐ。</span></h3>
-              <p>リーグやカテゴリーごとのルールなど、グローブを使うために必要な情報へアクセスできます。</p>
+              <p class="feature-description"><span>リーグやカテゴリーごとの</span><span>ルールなど、</span><span>グローブを使うために必要な</span><span>情報を確認できます。</span></p>
             </div>
             <div class="mobile-feature-image"><img src="assets/link.png" alt="Globase Link" loading="lazy" decoding="async"></div>
           </article>
@@ -1526,11 +1638,6 @@
     <section class="name-section">
       <div class="container name-grid">
 
-        <div class="name-message">
-          <span>最初のひとつから、</span>
-          <span>最高の相棒まで。</span>
-        </div>
-
         <div class="name-title">
           Glove + Base
         </div>
@@ -1548,9 +1655,9 @@
     <section class="download">
       <div class="container download-grid">
 
-        <h2 class="download-title">
-          <span>自分に合ったグローブを、</span>
-          <span>自分で選ぼう。</span>
+        <h2 class="download-title brand-message-bottom">
+          <span>最初のひとつから、</span>
+          <span>最高の相棒まで。</span>
         </h2>
 
         <div class="download-brand">
