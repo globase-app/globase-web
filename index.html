@@ -2090,6 +2090,112 @@
 }
 </style>
 
+
+<style>
+/* =========================================================
+   Final Hero direction
+   1st headline line owns the full width.
+   Phone begins only below that line and enters beside line 2.
+   ========================================================= */
+.hero-benefit {
+  padding-left: 0 !important;
+  font-weight: 500 !important;
+}
+.hero-benefit::before {
+  display: none !important;
+}
+
+@media (min-width: 901px) {
+  .hero {
+    padding-top: 88px;
+    padding-bottom: 30px;
+  }
+
+  .hero-grid {
+    position: relative;
+    display: block;
+    min-height: 600px;
+  }
+
+  .hero-grid > div:first-child {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .hero-title {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero-title span:first-child {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .hero-title span:nth-child(2) {
+    display: block;
+    width: max-content;
+    white-space: nowrap;
+  }
+
+  /* Phone starts completely below headline line 1,
+     then occupies the open space to the right of line 2. */
+  .hero-demo {
+    position: absolute;
+    z-index: 1;
+    top: 194px;
+    left: 500px;
+    right: auto;
+    width: 520px;
+    min-height: 520px;
+    transform: none;
+  }
+
+  .hero-demo .phone-stage {
+    width: 470px;
+    max-width: none;
+  }
+
+  .hero-demo .phone-frame {
+    width: 315px;
+  }
+
+  /* Make carousel affordance visible in the initial viewport. */
+  .hero-demo .slider-arrow {
+    top: 37%;
+  }
+
+  .hero-description-group {
+    width: 510px;
+    max-width: 510px;
+    margin-top: 28px;
+    margin-bottom: 24px;
+  }
+
+  .hero .primary-button {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1180px) {
+  .hero-demo {
+    left: 520px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    display: grid;
+  }
+
+  .hero-benefit {
+    padding-left: 0 !important;
+  }
+}
+</style>
+
 </body>
 </html><style>
 /* Final desktop positioning adjustment: keep phone below first headline line, move it left. */
