@@ -1440,8 +1440,7 @@
               自分の基準からグローブを探せます。
             </p>
             <p class="hero-benefit">
-              メーカーごとにサイトを行き来する必要はありません。<br class="desktop-only-break">
-              気になるグローブを、ひとつの場所で比較できます。
+              メーカーを横断して、ひとつの場所で比較できます。
             </p>
           </div>
 
@@ -1968,6 +1967,128 @@
     });
 
   </script>
+
+
+<style>
+/* =========================================================
+   Hero visual finish — structure stays the same.
+   ========================================================= */
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+/* A restrained glow, not a decorative circle. */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 520px;
+  height: 520px;
+  right: 7%;
+  bottom: -185px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(8, 151, 155, 0.085) 0%,
+    rgba(8, 151, 155, 0.035) 42%,
+    rgba(8, 151, 155, 0) 72%
+  );
+  pointer-events: none;
+}
+
+.hero-description-group {
+  max-width: 650px;
+  margin-bottom: 28px;
+}
+
+.hero-description-group .hero-description {
+  margin-bottom: 10px;
+}
+
+.hero-benefit {
+  position: relative;
+  display: inline-block;
+  padding-left: 18px;
+  color: #666b70;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 0.005em;
+}
+
+.hero-benefit::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  bottom: 0.42em;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--teal);
+  opacity: 0.72;
+}
+
+.hero .primary-button {
+  min-width: 136px;
+  min-height: 54px;
+  box-shadow: 0 10px 24px rgba(8, 151, 155, 0.14);
+}
+
+/* Slightly stronger phone separation from the white page. */
+.hero-demo .phone-frame {
+  box-shadow:
+    0 34px 72px rgba(0, 0, 0, 0.14),
+    0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 901px) {
+  .hero {
+    /* Keep the intentional crop, but remove the "ran out of room" feeling. */
+    padding-top: 88px;
+    padding-bottom: 24px;
+  }
+
+  .hero-grid {
+    align-items: start;
+  }
+
+  .hero-demo {
+    /* User requested a small move back to the right. */
+    right: 185px;
+    top: 132px;
+    min-height: 500px;
+  }
+
+  .hero-demo .phone-frame {
+    width: 315px;
+  }
+
+  /* Keep the Why copy on deliberate, readable lines. */
+  .problem-copy {
+    max-width: 620px;
+  }
+
+  .problem-copy span {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero::after {
+    width: 380px;
+    height: 380px;
+    right: -145px;
+    bottom: -90px;
+  }
+
+  .hero-benefit {
+    display: block;
+    max-width: 100%;
+  }
+}
+</style>
 
 </body>
 </html><style>
