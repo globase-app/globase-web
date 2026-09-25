@@ -498,8 +498,7 @@
       gap: 40px;
       height: 100%;
     }
-
-    .feature-content.active {
+        .feature-content.active {
       display: grid;
     }
 
@@ -752,7 +751,6 @@
       display: none;
     }
 
-
     .mobile-menu-button,
     .mobile-drawer,
     .mobile-menu-backdrop,
@@ -774,15 +772,22 @@
         display: none;
       }
 
-      nav { gap: 8px; }
+      nav {
+        gap: 8px;
+      }
 
       .nav-download {
         padding: 9px 14px;
         font-size: 12px;
       }
 
-      .nav-download .desktop-download-label { display: none; }
-      .nav-download .mobile-download-label { display: inline; }
+      .nav-download .desktop-download-label {
+        display: none;
+      }
+
+      .nav-download .mobile-download-label {
+        display: inline;
+      }
 
       .mobile-menu-button {
         display: inline-flex;
@@ -797,113 +802,146 @@
         font-size: 25px;
         cursor: pointer;
       }
-
-      .mobile-menu-backdrop {
+            .mobile-menu-backdrop {
         position: fixed;
         inset: 0;
         z-index: 1090;
-        background: rgba(0,0,0,.22);
+        display: block;
+        background: rgba(0, 0, 0, 0.22);
         opacity: 0;
-        pointer-events: none;
-        transition: opacity .22s ease;
+        visibility: hidden;
+        transition:
+          opacity 0.25s ease,
+          visibility 0.25s ease;
       }
 
       .mobile-menu-backdrop.open {
-        display: block;
         opacity: 1;
-        pointer-events: auto;
+        visibility: visible;
       }
 
       .mobile-drawer {
-        display: flex;
         position: fixed;
         top: 0;
         right: 0;
         z-index: 1100;
-        width: min(82vw, 320px);
-        height: 100%;
-        padding: 22px 24px;
-        flex-direction: column;
+        display: block;
+        width: min(82vw, 330px);
+        height: 100dvh;
+        padding: 26px 24px;
         background: #fff;
         transform: translateX(100%);
-        transition: transform .24s ease;
-        box-shadow: -18px 0 45px rgba(0,0,0,.12);
+        transition: transform 0.3s ease;
+        box-shadow: -18px 0 45px rgba(0, 0, 0, 0.12);
       }
 
-      .mobile-drawer.open { transform: translateX(0); }
+      .mobile-drawer.open {
+        transform: translateX(0);
+      }
 
-      .mobile-drawer-head {
+      .mobile-drawer-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 44px;
-        margin-bottom: 28px;
+        margin-bottom: 42px;
+      }
+
+      .mobile-drawer-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 19px;
         font-weight: 750;
       }
 
+      .mobile-drawer-brand img {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+      }
+
       .mobile-drawer-close {
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
         border: 0;
-        background: transparent;
-        font-size: 28px;
+        border-radius: 50%;
+        background: #f5f6f7;
+        font-size: 24px;
         cursor: pointer;
       }
 
-      .mobile-drawer a {
+      .mobile-drawer-nav {
         display: flex;
-        align-items: center;
-        min-height: 54px;
+        flex-direction: column;
+      }
+
+      .mobile-drawer-nav a {
+        padding: 18px 4px;
         border-bottom: 1px solid var(--line);
-        font-size: 18px;
-        font-weight: 650;
-      }
-
-      .header-inner {
-        height: 68px;
-      }
-
-      .brand {
         font-size: 20px;
-      }
-
-      .brand img {
-        width: 38px;
-        height: 38px;
+        font-weight: 700;
       }
 
       .hero {
-        padding: 65px 0 80px;
+        padding: 58px 0 0;
       }
 
       .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 55px;
+        display: block;
       }
 
-      .hero-demo { transform: none; }
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+      }
 
       h1 {
         font-size: clamp(34px, 8.9vw, 46px);
-        letter-spacing: -0.055em;
+        line-height: 1.12;
+        margin-bottom: 24px;
       }
 
-      .desktop-only-break { display: none; }
-
       .hero-description {
+        max-width: 100%;
         font-size: 16px;
+        line-height: 1.9;
+        margin-bottom: 28px;
       }
 
       .hero-demo {
         min-height: 0;
+        margin-top: 46px;
+        transform: none;
+      }
+
+      .phone-stage {
+        width: 100%;
       }
 
       .phone-frame {
-        width: min(70vw, 270px);
-        height: auto;
+        width: min(72vw, 310px);
       }
 
       .slider-arrow {
+        top: 50%;
+        width: 43px;
+        height: 43px;
+        font-size: 24px;
+      }
+
+      .slider-arrow.prev {
+        left: 1%;
+      }
+
+      .slider-arrow.next {
+        right: 1%;
+      }
+
+      .slider-dots {
+        margin-top: 18px;
+      }
+
+      .swipe-note {
         display: none;
       }
 
@@ -912,17 +950,45 @@
       }
 
       .problem-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
+        display: block;
+      }
+
+      .problem-copy {
+        margin-bottom: 54px;
+      }
+
+      .section-title {
+        font-size: clamp(32px, 8vw, 43px);
+        line-height: 1.3;
+      }
+
+      .section-text {
+        font-size: 16px;
+        line-height: 2;
       }
 
       .steps {
         grid-template-columns: repeat(2, 1fr);
-        row-gap: 45px;
+        gap: 48px 22px;
       }
 
       .step:not(:last-child)::after {
         display: none;
+      }
+
+      .step-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 15px;
+      }
+
+      .step h3 {
+        font-size: 17px;
+      }
+
+      .step p {
+        max-width: 140px;
+        margin: 0 auto;
       }
 
       .features {
@@ -931,135 +997,206 @@
 
       .mobile-features {
         display: block;
-        padding: 72px 0 90px;
+        padding: 82px 0 100px;
+        background: #fff;
       }
 
       .mobile-feature-shell {
-        border: 1px solid var(--line);
-        border-radius: 26px;
-        overflow: hidden;
-        background: #fbfbfc;
-        box-shadow: 0 16px 42px rgba(0,0,0,.05);
+        width: min(calc(100% - 36px), 680px);
+        margin: 0 auto;
       }
 
-      .mobile-feature-nav {
+      .mobile-feature-tabs {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        background: #fff;
-        border-bottom: 1px solid var(--line);
+        gap: 34px;
+        margin-bottom: 62px;
       }
 
-      .mobile-feature-nav button {
-        min-height: 54px;
+      .mobile-feature-tab {
+        position: relative;
         border: 0;
-        border-bottom: 2px solid transparent;
+        padding: 0 0 19px;
         background: transparent;
-        color: #8b8e94;
-        font-size: 15px;
+        color: #95989d;
+        font-size: 19px;
         font-weight: 700;
+        text-align: left;
         cursor: pointer;
       }
 
-      .mobile-feature-nav button.active {
+      .mobile-feature-tab::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: #dfe1e4;
+      }
+
+      .mobile-feature-tab.active {
         color: var(--teal);
-        border-bottom-color: var(--teal);
-        background: var(--teal-soft);
       }
 
-      .mobile-feature-item {
+      .mobile-feature-tab.active::after {
+        height: 3px;
+        border-radius: 999px;
+        background: var(--teal);
+      }
+
+      .mobile-feature-content {
         display: none;
-        padding: 42px 20px 0;
-        overflow: hidden;
       }
 
-      .mobile-feature-item.active { display: block; }
+      .mobile-feature-content.active {
+        display: block;
+      }
 
-      .mobile-feature-copy { margin-bottom: 34px; }
+      .mobile-feature-copy {
+        padding: 0 4px;
+      }
+
+      .mobile-feature-copy .section-kicker {
+        margin-bottom: 17px;
+      }
 
       .mobile-feature-copy h3 {
-        font-size: 30px;
-        line-height: 1.35;
+        font-size: clamp(29px, 7.4vw, 39px);
+        line-height: 1.42;
         letter-spacing: -0.035em;
-        margin-bottom: 16px;
+        margin-bottom: 42px;
       }
 
       .mobile-feature-copy p {
-        color: #666a70;
+        color: #686c72;
         font-size: 16px;
-        line-height: 1.9;
+        line-height: 2.05;
+        margin-bottom: 50px;
       }
 
-      .mobile-feature-image {
-        width: min(72vw, 280px);
-        height: 430px;
-        margin: 0 auto;
-        border: 5px solid #161616;
+      .mobile-feature-phone-wrap {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        max-height: 530px;
+      }
+
+      .mobile-feature-phone {
+        width: min(82vw, 390px);
+        border: 5px solid #171717;
         border-bottom: 0;
-        border-radius: 36px 36px 0 0;
+        border-radius: 42px 42px 0 0;
         overflow: hidden;
         background: #fff;
-        box-shadow: 0 20px 50px rgba(0,0,0,.11);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
       }
 
-      .mobile-feature-image img {
+      .mobile-feature-phone img {
         width: 100%;
         height: auto;
-        object-fit: contain;
-        object-position: top;
         transform: translateY(-4.8%);
       }
 
       .vision {
-        padding: 90px 0;
+        padding: 85px 0;
       }
 
       .vision-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        display: block;
+      }
+
+      .vision .section-title {
+        margin-bottom: 40px;
+      }
+
+      .vision-copy {
+        font-size: 16px;
+        line-height: 2.05;
+      }
+
+      .vision-copy p + p {
+        margin-top: 28px;
       }
 
       .name-section {
-        padding: 65px 0;
+        padding: 80px 0;
       }
 
       .name-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        display: block;
+      }
+
+      .name-message {
+        font-size: clamp(25px, 6.7vw, 32px);
+        line-height: 1.45;
+        margin-bottom: 56px;
       }
 
       .name-title {
-        font-size: 34px;
+        font-size: 37px;
+        margin-bottom: 46px;
       }
 
       .name-copy {
-        padding-left: 25px;
+        padding-left: 24px;
+        line-height: 2;
+      }
+
+      .download {
+        padding: 64px 0;
       }
 
       .download-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
+        display: block;
+      }
+
+      .download-title {
+        font-size: 29px;
+        margin-bottom: 40px;
       }
 
       .download-brand {
         min-width: 0;
       }
 
+      .download-brand img {
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
+      }
+
+      .download-brand strong {
+        font-size: 24px;
+      }
+
+      .contact {
+        padding: 70px 0;
+      }
+
       .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        display: block;
+      }
+
+      .contact h2 {
+        margin-bottom: 32px;
       }
 
       .contact p {
-        padding-left: 25px;
-      }
-
-      .outline-button {
-        justify-self: start;
+        border-left: 0;
+        padding-left: 0;
+        margin-bottom: 34px;
+        line-height: 2;
       }
 
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 15px 22px;
       }
     }
 
@@ -1069,309 +1206,170 @@
         width: calc(100% - 32px);
       }
 
+      .header-inner {
+        height: 72px;
+        gap: 12px;
+      }
+
+      .brand {
+        gap: 9px;
+        font-size: 20px;
+      }
+
+      .brand img {
+        width: 39px;
+        height: 39px;
+      }
+
+      nav {
+        margin-left: auto;
+      }
+
+      .nav-download {
+        padding: 9px 13px;
+      }
+
+      .mobile-menu-button {
+        width: 38px;
+        height: 38px;
+      }
+
       .hero {
         padding-top: 48px;
       }
 
       .eyebrow {
-        font-size: 13px;
+        margin-bottom: 15px;
       }
 
       h1 {
         font-size: clamp(33px, 8.8vw, 43px);
+        line-height: 1.12;
+        letter-spacing: -0.055em;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .primary-button {
+        min-height: 50px;
+        padding: 0 24px;
+      }
+
+      .hero-demo {
+        margin-top: 42px;
+      }
+
+      .phone-frame {
+        width: min(76vw, 300px);
+      }
+
+      .slider-arrow.prev {
+        left: -2px;
+      }
+
+      .slider-arrow.next {
+        right: -2px;
+      }
+
+      .problem {
+        padding: 68px 0 76px;
+      }
+
+      .problem-copy {
+        margin-bottom: 48px;
       }
 
       .section-title {
-        font-size: 34px;
+        font-size: clamp(31px, 8.3vw, 40px);
       }
 
-      .problem .section-title {
-        font-size: clamp(31px, 8.4vw, 36px);
-        letter-spacing: -0.045em;
-      }
-
-      .vision-copy,
-      .name-copy,
-      .contact p {
-        word-break: normal;
-        overflow-wrap: break-word;
-      }
-
-      .name-message {
-        font-size: 28px;
-        line-height: 1.45;
-      }
-
-      .name-message br {
-        display: block;
-      }
-
-      .mobile-feature-copy h3 { font-size: 28px; }
-
-      .mobile-feature-copy .feature-heading-line {
-        display: inline-block;
-        white-space: nowrap;
-      }
-
-      .mobile-feature-copy .feature-heading-line + .feature-heading-line::before {
-        content: " ";
-      }
-
-      .vision-copy {
-        font-size: 16px;
-        line-height: 2;
-      }
-
-      .vision-copy .phrase {
-        white-space: nowrap;
-      }
-
-      .name-copy {
-        padding-left: 22px;
-      }
-
-      .name-copy .name-line {
-        margin-bottom: 2px;
-      }
-
-      .name-copy .phrase {
-        white-space: nowrap;
-      }
-
-      .contact-line {
-        width: fit-content;
-        max-width: 100%;
+      .section-text {
+        font-size: 15px;
       }
 
       .steps {
-        grid-template-columns: 1fr 1fr;
-        gap: 35px 14px;
+        gap: 46px 16px;
       }
 
       .step-icon {
-        width: 62px;
-        height: 62px;
-      }
-
-      .step h3 {
-        font-size: 17px;
+        width: 66px;
+        height: 66px;
+        font-size: 25px;
       }
 
       .step p {
         font-size: 12px;
       }
 
-      .download-title {
-        font-size: 30px;
-      }
-    }
-
-    @media (max-width: 390px) {
-      .problem .section-title {
-        font-size: 30px;
+      .mobile-features {
+        padding: 76px 0 92px;
       }
 
-      .name-message {
-        font-size: 26px;
+      .mobile-feature-shell {
+        width: calc(100% - 32px);
+      }
+
+      .mobile-feature-tabs {
+        gap: 22px;
+        margin-bottom: 56px;
+      }
+
+      .mobile-feature-tab {
+        font-size: 18px;
+        padding-bottom: 17px;
+      }
+
+      .mobile-feature-copy h3 {
+        font-size: clamp(28px, 7.6vw, 36px);
+        margin-bottom: 38px;
+      }
+
+      .mobile-feature-copy p {
+        font-size: 15px;
+        margin-bottom: 46px;
+      }
+
+      .vision {
+        padding: 78px 0;
       }
 
       .vision-copy {
         font-size: 15px;
       }
 
+      .name-section {
+        padding: 74px 0;
+      }
+
+      .name-title {
+        font-size: 35px;
+      }
+
       .name-copy {
         font-size: 15px;
       }
 
-      .mobile-feature-copy h3 {
+      .download-title {
         font-size: 27px;
       }
     }
 
-
-    /* ===== Final layout refinements ===== */
-    .step-icon {
-      background: #cfeeee;
-      color: var(--teal-dark);
-      box-shadow: inset 0 0 0 1px rgba(6, 128, 133, .10);
-    }
-
-    .feature-tab {
-      border: 1px solid transparent;
-      padding: 25px 22px;
-      margin-bottom: 12px;
-    }
-
-    .feature-tab:hover {
-      border-color: #d7eaea;
-      background: #f3fafa;
-    }
-
-    .feature-tab.active {
-      border-color: rgba(6, 128, 133, .24);
-      background: var(--teal-soft);
-      box-shadow: inset 4px 0 0 var(--teal);
-    }
-
-    .feature-tab .tab-name {
-      margin-bottom: 0;
-      font-size: 22px;
-    }
-
-    .feature-content {
-      min-height: 458px;
-    }
-
-    .feature-copy {
-      min-height: 245px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .feature-description span {
-      display: block;
-      white-space: nowrap;
-    }
-
-    .feature-heading-line {
-      display: block;
-      white-space: nowrap;
-    }
-
-    .feature-heading-line + .feature-heading-line::before {
-      content: none;
-    }
-
-    @media (min-width: 901px) {
-      .hero-grid {
-        display: block;
-        position: relative;
-        min-height: 610px;
-      }
-
-      .hero-grid > div:first-child {
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero-title {
-        max-width: none;
-        padding-right: 0;
-      }
-
-      .hero-demo {
-        position: absolute;
-        right: 10px;
-        top: 92px;
-        z-index: 1;
-      }
-
-      .hero-description {
-        max-width: 560px;
-      }
-    }
-
-    /* ===== Hero impact + feature text alignment ===== */
-    @media (min-width: 901px) {
-      .hero {
-        padding-top: 88px;
-      }
-
-      .hero-grid {
-        min-height: 650px;
-      }
-
-      .hero-title {
-        position: relative;
-        z-index: 3;
-        width: 100%;
-        font-size: clamp(74px, 6.25vw, 92px);
-        line-height: 1.02;
-        letter-spacing: -0.06em;
-        margin-bottom: 34px;
-      }
-
-      .hero-title span:first-child {
-        width: max-content;
-        max-width: 100%;
-      }
-
-      .hero-demo {
-        right: 4px;
-        top: 132px;
-      }
-
-      .feature-copy {
-        min-height: 270px;
-        justify-content: flex-start;
-      }
-
-      .feature-copy .section-kicker {
-        height: 28px;
-        margin-bottom: 10px;
-        flex: 0 0 28px;
-      }
-
-      .feature-copy h3 {
-        height: 92px;
-        margin-bottom: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        flex: 0 0 92px;
-      }
-
-      .feature-copy p {
-        height: 118px;
-        flex: 0 0 118px;
-      }
-    }
+    /* =========================
+       Final mobile line-break polish
+    ========================= */
 
     @media (max-width: 900px) {
-      .mobile-feature-item {
-        min-height: 650px;
+
+      .problem-copy .why-last-line {
+        display: block;
+        white-space: normal;
       }
 
-      .mobile-feature-copy {
-        min-height: 270px;
-        margin-bottom: 24px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
-
-      .mobile-feature-copy .section-kicker {
-        height: 26px;
-        flex: 0 0 26px;
-        margin-bottom: 8px;
-      }
-
-      .mobile-feature-copy h3 {
-        height: 84px;
-        flex: 0 0 84px;
-        margin-bottom: 16px;
-      }
-
-      .mobile-feature-copy p {
-        height: 116px;
-        flex: 0 0 116px;
-      }
-
-      .mobile-feature-nav button {
-        min-height: 58px;
-        border-right: 1px solid var(--line);
-      }
-
-      .mobile-feature-nav button:last-child {
-        border-right: 0;
-      }
-
-      .mobile-feature-nav button.active {
-        box-shadow: inset 0 -3px 0 var(--teal);
-      }
-
-      .feature-description span {
+      .vision-copy .vision-place,
+      .vision-copy .vision-goal {
+        display: block;
         white-space: nowrap;
       }
     }
@@ -1381,418 +1379,915 @@
 
 <body>
 
-  <!-- Header -->
+  <!-- =========================
+       Header
+  ========================== -->
+
   <header>
     <div class="container header-inner">
-      <a href="#home" class="brand">
-        <img src="assets/app-icon.png" alt="Globase">
+
+      <a class="brand" href="#home" aria-label="Globase ホーム">
+        <img
+          src="assets/app-icon.png"
+          alt="Globase"
+        >
         <span>Globase</span>
       </a>
 
-      <nav>
-        <a href="#home">Search</a>
-        <a href="#features">Features</a>
-        <a href="#vision">Vision</a>
-        <a href="#contact">Contact</a>
+      <nav aria-label="メインナビゲーション">
+
+        <a href="#home">
+          Search
+        </a>
+
+        <a href="#features">
+          Features
+        </a>
+
+        <a href="#vision">
+          Vision
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
         <a
           class="nav-download"
-          href="https://apps.apple.com/jp/app/globase/id6755428184"
-          target="_blank"
-          rel="noopener"
+          href="#download"
         >
-          <span class="desktop-download-label">App Store</span>
-          <span class="mobile-download-label">App Store</span>
+          <span class="desktop-download-label">
+            App Storeで見る →
+          </span>
+
+          <span class="mobile-download-label">
+            App Store
+          </span>
         </a>
-        <button class="mobile-menu-button" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
+
+        <button
+          class="mobile-menu-button"
+          type="button"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
       </nav>
+
     </div>
   </header>
 
-  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
-  <aside class="mobile-drawer" aria-label="モバイルメニュー">
-    <div class="mobile-drawer-head">
-      <span>Menu</span>
-      <button class="mobile-drawer-close" type="button" aria-label="メニューを閉じる">×</button>
+  <!-- Mobile menu -->
+
+  <div
+    class="mobile-menu-backdrop"
+    aria-hidden="true"
+  ></div>
+
+  <aside
+    class="mobile-drawer"
+    aria-label="モバイルメニュー"
+  >
+
+    <div class="mobile-drawer-header">
+
+      <div class="mobile-drawer-brand">
+        <img
+          src="assets/app-icon.png"
+          alt=""
+        >
+        <span>Globase</span>
+      </div>
+
+      <button
+        class="mobile-drawer-close"
+        type="button"
+        aria-label="メニューを閉じる"
+      >
+        ×
+      </button>
+
     </div>
-    <a href="#home">Search</a>
-    <a href="#features-mobile">Features</a>
-    <a href="#vision">Vision</a>
-    <a href="#contact">Contact</a>
+
+    <div class="mobile-drawer-nav">
+
+      <a href="#home">
+        Search
+      </a>
+
+      <a href="#features">
+        Features
+      </a>
+
+      <a href="#vision">
+        Vision
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </div>
+
   </aside>
 
   <main>
 
-    <!-- Hero -->
-    <section class="hero" id="home">
+    <!-- =========================
+         Hero / Search
+    ========================== -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
       <div class="container hero-grid">
 
-        <div>
-          <div class="eyebrow">Search</div>
+        <div class="hero-copy">
+
+          <div class="eyebrow">
+            Search
+          </div>
 
           <h1 class="hero-title">
             <span>自分に合ったグローブを、</span>
             <span>自分で選ぶ。</span>
           </h1>
 
-          <div class="hero-description-group">
-            <p class="hero-description">
-              ポジション、サイズ感、価格、メーカー、型番など、<br class="desktop-only-break">
-              自分の基準からグローブを探せます。
-            </p>
-            <p class="hero-benefit">
-              メーカーを横断して、ひとつの場所で比較できます。
-            </p>
-          </div>
+          <p class="hero-description">
+            ポジション、サイズ感、価格、メーカー、型番など、
+            自分の基準からグローブを探せます。
+          </p>
 
           <a
             class="primary-button"
-            href="https://apps.apple.com/jp/app/globase/id6755428184"
-            target="_blank"
-            rel="noopener"
+            href="#download"
           >
             App Store
           </a>
+
         </div>
 
         <div class="hero-demo">
 
-          <button class="slider-arrow prev" aria-label="前の画面">‹</button>
-
           <div class="phone-stage">
+
+            <button
+              class="slider-arrow prev"
+              type="button"
+              aria-label="前の画面"
+            >
+              ‹
+            </button>
+
             <div class="phone-frame">
-              <div class="phone-track" id="phoneTrack">
+
+              <div class="phone-track">
 
                 <div class="phone-slide">
-                  <img src="assets/search-home.png" alt="Globase 検索ホーム">
+                  <img
+                    src="assets/search-home.png"
+                    alt="Globase 検索ホーム"
+                  >
                 </div>
 
                 <div class="phone-slide">
-                  <img src="assets/search-size.png" alt="サイズ感から検索">
+                  <img
+                    src="assets/search-size.png"
+                    alt="Globase サイズ感選択"
+                  >
                 </div>
 
                 <div class="phone-slide">
-                  <img src="assets/search-results.png" alt="検索結果">
+                  <img
+                    src="assets/search-results.png"
+                    alt="Globase 検索結果"
+                  >
                 </div>
 
                 <div class="phone-slide">
-                  <img src="assets/search-detail.png" alt="グローブ詳細">
+                  <img
+                    src="assets/search-detail.png"
+                    alt="Globase グローブ詳細"
+                  >
                 </div>
 
               </div>
+
             </div>
 
-            <div class="slider-dots">
-              <button class="slider-dot active" data-slide="0" aria-label="1"></button>
-              <button class="slider-dot" data-slide="1" aria-label="2"></button>
-              <button class="slider-dot" data-slide="2" aria-label="3"></button>
-              <button class="slider-dot" data-slide="3" aria-label="4"></button>
+            <button
+              class="slider-arrow next"
+              type="button"
+              aria-label="次の画面"
+            >
+              ›
+            </button>
+
+            <div
+              class="slider-dots"
+              aria-label="画面選択"
+            >
+
+              <button
+                class="slider-dot active"
+                type="button"
+                aria-label="1枚目"
+              ></button>
+
+              <button
+                class="slider-dot"
+                type="button"
+                aria-label="2枚目"
+              ></button>
+
+              <button
+                class="slider-dot"
+                type="button"
+                aria-label="3枚目"
+              ></button>
+
+              <button
+                class="slider-dot"
+                type="button"
+                aria-label="4枚目"
+              ></button>
+
             </div>
 
             <div class="swipe-note">
-              スワイプしてアプリの画面を確認できます
+              スワイプでも切り替えられます
             </div>
+
           </div>
 
-          <button class="slider-arrow next" aria-label="次の画面">›</button>
-
         </div>
-      </div>
-    </section>
 
-    <!-- Problem -->
+      </div>
+
+    </section>
+        <!-- =========================
+         Why Globase
+    ========================== -->
+
     <section class="problem">
+
       <div class="container problem-grid">
 
-        <div>
-          <div class="section-kicker">Why Globase</div>
+        <div class="problem-copy">
 
-          <h2 class="section-title problem-title">
-            <span>選択肢が増えたからこそ、</span>
-            <span>選ぶのは難しい。</span>
+          <div class="section-kicker">
+            WHY GLOBASE
+          </div>
+
+          <h2 class="section-title">
+            選択肢が増えたからこそ、<br>
+            選ぶのは難しい。
           </h2>
 
-          <p class="section-text problem-copy">
-            <span>メーカーやモデルが増え、情報も分散し、</span>
-            <span>グローブ選びは以前より複雑になっています。</span>
-            <span>Globaseは、そんなグローブ選びを整理し、</span>
-            <span>自分に合った一つを見つけるための道筋をつくります。</span>
+          <p class="section-text">
+            メーカーやモデルが増え、情報も分散し、<br class="desktop-only">
+            グローブ選びは以前より複雑になっています。<br class="desktop-only">
+            Globaseは、そんなグローブ選びを整理し、<br class="desktop-only">
+            <span class="why-last-line">
+              自分に合った一つを見つけるための道筋をつくります。
+            </span>
           </p>
+
         </div>
 
         <div class="steps">
 
           <div class="step">
-            <div class="step-icon">01</div>
-            <h3>知る</h3>
+
+            <div class="step-icon">
+              01
+            </div>
+
+            <h3>
+              知る
+            </h3>
+
             <p>
               種類や特徴を<br>
               理解する。
             </p>
+
           </div>
 
           <div class="step">
-            <div class="step-icon">02</div>
-            <h3>考える</h3>
+
+            <div class="step-icon">
+              02
+            </div>
+
+            <h3>
+              考える
+            </h3>
+
             <p>
               自分に必要な条件を<br>
               整理する。
             </p>
+
           </div>
 
           <div class="step">
-            <div class="step-icon">03</div>
-            <h3>比べる</h3>
+
+            <div class="step-icon">
+              03
+            </div>
+
+            <h3>
+              比べる
+            </h3>
+
             <p>
               違いを見ながら<br>
               候補を絞る。
             </p>
+
           </div>
 
           <div class="step">
-            <div class="step-icon">04</div>
-            <h3>選ぶ</h3>
+
+            <div class="step-icon">
+              04
+            </div>
+
+            <h3>
+              選ぶ
+            </h3>
+
             <p>
               納得できる一つを<br>
               見つける。
             </p>
+
           </div>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- Desktop Features -->
-    <section class="features" id="features">
+
+    <!-- =========================
+         Features - Desktop
+    ========================== -->
+
+    <section
+      class="features"
+      id="features"
+    >
+
       <div class="container">
 
-        <div class="feature-panel">
+        <div class="feature-shell">
 
-          <div class="feature-tabs">
+          <div class="feature-selector">
 
-            <button class="feature-tab active" data-feature="lab">
-              <span class="tab-name">Lab</span>
+            <button
+              class="feature-selector-button active"
+              type="button"
+              data-feature="lab"
+            >
+              Lab
             </button>
 
-            <button class="feature-tab" data-feature="order">
-              <span class="tab-name">Order</span>
+            <button
+              class="feature-selector-button"
+              type="button"
+              data-feature="order"
+            >
+              Order
             </button>
 
-            <button class="feature-tab" data-feature="link">
-              <span class="tab-name">Link</span>
+            <button
+              class="feature-selector-button"
+              type="button"
+              data-feature="link"
+            >
+              Link
             </button>
 
           </div>
 
           <div class="feature-display">
 
-            <div class="feature-content active" data-content="lab">
+            <!-- Lab -->
+
+            <div
+              class="feature-panel active"
+              data-panel="lab"
+            >
+
               <div class="feature-copy">
-                <div class="section-kicker">Lab</div>
-                <h3><span class="feature-heading-line">グローブをもっと知る。</span></h3>
-                <p class="feature-description">
-                  <span>選び方の基礎知識や</span>
-                  <span>ポジションごとの特徴など、</span>
-                  <span>グローブに関する知識を</span>
-                  <span>分かりやすくまとめています。</span>
+
+                <div class="section-kicker">
+                  LAB
+                </div>
+
+                <h3>
+                  グローブをもっと知る。
+                </h3>
+
+                <p>
+                  選び方の基礎知識や<br>
+                  ポジションごとの特徴など、<br>
+                  グローブに関する知識を<br>
+                  分かりやすくまとめています。
                 </p>
+
               </div>
 
-              <div class="feature-phone">
-                <img src="assets/lab.png" alt="Globase Lab" loading="lazy" decoding="async">
+              <div class="feature-phone-wrap">
+
+                <div class="feature-phone">
+
+                  <img
+                    src="assets/lab.png"
+                    alt="Globase Lab"
+                    loading="lazy"
+                  >
+
+                </div>
+
               </div>
+
             </div>
 
-            <div class="feature-content" data-content="order">
+
+            <!-- Order -->
+
+            <div
+              class="feature-panel"
+              data-panel="order"
+            >
+
               <div class="feature-copy">
-                <div class="section-kicker">Order</div>
-                <h3><span class="feature-heading-line">自分だけのグローブ</span><span class="feature-heading-line">を探す。</span></h3>
-                <p class="feature-description">
-                  <span>各メーカーのオーダー情報を</span>
-                  <span>まとめて確認できます。</span>
-                  <span>自分のこだわりを形にする</span>
-                  <span>選択肢を探せます。</span>
+
+                <div class="section-kicker">
+                  ORDER
+                </div>
+
+                <h3>
+                  自分だけのグローブを探す。
+                </h3>
+
+                <p>
+                  各メーカーの公式オーダーサイトを<br>
+                  一つの場所から確認できます。<br>
+                  既製品だけではなく、<br>
+                  自分だけの一つを探せます。
                 </p>
+
               </div>
 
-              <div class="feature-phone">
-                <img src="assets/order.png" alt="Globase Order" loading="lazy" decoding="async">
+              <div class="feature-phone-wrap">
+
+                <div class="feature-phone">
+
+                  <img
+                    src="assets/order.png"
+                    alt="Globase Order"
+                    loading="lazy"
+                  >
+
+                </div>
+
               </div>
+
             </div>
 
-            <div class="feature-content" data-content="link">
+
+            <!-- Link -->
+
+            <div
+              class="feature-panel"
+              data-panel="link"
+            >
+
               <div class="feature-copy">
-                <div class="section-kicker">Link</div>
-                <h3><span class="feature-heading-line">グローブと、</span><span class="feature-heading-line">必要な情報をつなぐ。</span></h3>
-                <p class="feature-description">
-                  <span>リーグやカテゴリーごとの</span>
-                  <span>ルールなど、</span>
-                  <span>グローブを使うために必要な</span>
-                  <span>情報を確認できます。</span>
+
+                <div class="section-kicker">
+                  LINK
+                </div>
+
+                <h3>
+                  グローブと、<br>
+                  必要な情報をつなぐ。
+                </h3>
+
+                <p>
+                  リーグやカテゴリーごとの<br>
+                  ルールなど、<br>
+                  グローブを使うために必要な<br>
+                  情報を確認できます。
                 </p>
+
               </div>
 
-              <div class="feature-phone">
-                <img src="assets/link.png" alt="Globase Link" loading="lazy" decoding="async">
+              <div class="feature-phone-wrap">
+
+                <div class="feature-phone">
+
+                  <img
+                    src="assets/link.png"
+                    alt="Globase Link"
+                    loading="lazy"
+                  >
+
+                </div>
+
               </div>
+
             </div>
 
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Mobile Features -->
-    <section class="mobile-features" id="features-mobile">
-      <div class="container">
-        <div class="mobile-feature-shell">
-          <div class="mobile-feature-nav" role="tablist" aria-label="Globaseの機能">
-            <button class="active" type="button" role="tab" aria-selected="true" data-mobile-nav="lab">Lab</button>
-            <button type="button" role="tab" aria-selected="false" data-mobile-nav="order">Order</button>
-            <button type="button" role="tab" aria-selected="false" data-mobile-nav="link">Link</button>
+
+    <!-- =========================
+         Features - Mobile
+    ========================== -->
+
+    <section
+      class="mobile-features"
+      id="mobile-features"
+    >
+
+      <div class="mobile-feature-shell">
+
+        <div class="mobile-feature-tabs">
+
+          <button
+            class="mobile-feature-tab active"
+            type="button"
+            data-mobile-feature="lab"
+          >
+            Lab
+          </button>
+
+          <button
+            class="mobile-feature-tab"
+            type="button"
+            data-mobile-feature="order"
+          >
+            Order
+          </button>
+
+          <button
+            class="mobile-feature-tab"
+            type="button"
+            data-mobile-feature="link"
+          >
+            Link
+          </button>
+
+        </div>
+
+
+        <!-- Mobile Lab -->
+
+        <div
+          class="mobile-feature-content active"
+          data-mobile-panel="lab"
+        >
+
+          <div class="mobile-feature-copy">
+
+            <div class="section-kicker">
+              LAB
+            </div>
+
+            <h3>
+              グローブをもっと知る。
+            </h3>
+
+            <p>
+              選び方の基礎知識や<br>
+              ポジションごとの特徴など、<br>
+              グローブに関する知識を<br>
+              分かりやすくまとめています。
+            </p>
+
           </div>
 
-          <article class="mobile-feature-item active" data-mobile-feature="lab">
-            <div class="mobile-feature-copy">
-              <div class="section-kicker">Lab</div>
-              <h3><span class="feature-heading-line">グローブをもっと知る。</span></h3>
-              <p class="feature-description"><span>選び方の基礎知識や</span><span>ポジションごとの特徴など、</span><span>グローブに関する知識を</span><span>分かりやすくまとめています。</span></p>
-            </div>
-            <div class="mobile-feature-image"><img src="assets/lab.png" alt="Globase Lab" loading="lazy" decoding="async"></div>
-          </article>
+          <div class="mobile-feature-phone-wrap">
 
-          <article class="mobile-feature-item" data-mobile-feature="order">
-            <div class="mobile-feature-copy">
-              <div class="section-kicker">Order</div>
-              <h3><span class="feature-heading-line">自分だけのグローブ</span><span class="feature-heading-line">を探す。</span></h3>
-              <p class="feature-description"><span>各メーカーのオーダー情報を</span><span>まとめて確認できます。</span><span>自分のこだわりを形にする</span><span>選択肢を探せます。</span></p>
-            </div>
-            <div class="mobile-feature-image"><img src="assets/order.png" alt="Globase Order" loading="lazy" decoding="async"></div>
-          </article>
+            <div class="mobile-feature-phone">
 
-          <article class="mobile-feature-item" data-mobile-feature="link">
-            <div class="mobile-feature-copy">
-              <div class="section-kicker">Link</div>
-              <h3><span class="feature-heading-line">グローブと、</span><span class="feature-heading-line">必要な情報をつなぐ。</span></h3>
-              <p class="feature-description"><span>リーグやカテゴリーごとの</span><span>ルールなど、</span><span>グローブを使うために必要な</span><span>情報を確認できます。</span></p>
+              <img
+                src="assets/lab.png"
+                alt="Globase Lab"
+                loading="lazy"
+              >
+
             </div>
-            <div class="mobile-feature-image"><img src="assets/link.png" alt="Globase Link" loading="lazy" decoding="async"></div>
-          </article>
+
+          </div>
+
         </div>
+
+
+        <!-- Mobile Order -->
+
+        <div
+          class="mobile-feature-content"
+          data-mobile-panel="order"
+        >
+
+          <div class="mobile-feature-copy">
+
+            <div class="section-kicker">
+              ORDER
+            </div>
+
+            <h3>
+              自分だけのグローブを探す。
+            </h3>
+
+            <p>
+              各メーカーの公式オーダーサイトを<br>
+              一つの場所から確認できます。<br>
+              既製品だけではなく、<br>
+              自分だけの一つを探せます。
+            </p>
+
+          </div>
+
+          <div class="mobile-feature-phone-wrap">
+
+            <div class="mobile-feature-phone">
+
+              <img
+                src="assets/order.png"
+                alt="Globase Order"
+                loading="lazy"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Mobile Link -->
+
+        <div
+          class="mobile-feature-content"
+          data-mobile-panel="link"
+        >
+
+          <div class="mobile-feature-copy">
+
+            <div class="section-kicker">
+              LINK
+            </div>
+
+            <h3>
+              グローブと、<br>
+              必要な情報をつなぐ。
+            </h3>
+
+            <p>
+              リーグやカテゴリーごとの<br>
+              ルールなど、<br>
+              グローブを使うために必要な<br>
+              情報を確認できます。
+            </p>
+
+          </div>
+
+          <div class="mobile-feature-phone-wrap">
+
+            <div class="mobile-feature-phone">
+
+              <img
+                src="assets/link.png"
+                alt="Globase Link"
+                loading="lazy"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- Vision -->
-    <section class="vision" id="vision">
+
+    <!-- =========================
+         Vision
+    ========================== -->
+
+    <section
+      class="vision"
+      id="vision"
+    >
+
       <div class="container vision-grid">
 
         <div>
-          <div class="section-kicker">Our Vision</div>
 
-          <h2 class="section-title vision-title">
-            <span>グローブの情報が</span>
-            <span>集まる場所へ。</span>
+          <div class="section-kicker">
+            OUR VISION
+          </div>
+
+          <h2 class="section-title">
+            グローブの情報が<br>
+            集まる場所へ。
           </h2>
+
         </div>
 
         <div class="vision-copy">
+
           <p>
-            <span class="phrase">商品を探す。</span>
-            <span class="phrase">知識を得る。</span>
-            <span class="phrase">オーダーを知る。</span>
-            <span class="phrase">ルールを確認する。</span>
-            <span class="phrase">そしてこれから、</span>
-            <span class="phrase">ショップやメーカーともつながっていく。</span>
+            商品を探す。知識を得る。オーダーを知る。<br class="desktop-only">
+            ルールを確認する。そしてこれから、<br class="desktop-only">
+            ショップやメーカーともつながっていく。
           </p>
 
           <p>
-            <span class="phrase">Globaseは、</span>
-            <span class="phrase">グローブに関わる情報や人をつなぎ、</span>
-            <span class="phrase">「グローブのことなら、まずGlobaseを見る」</span>
-            <span class="phrase">場所を目指します。</span>
+            Globaseは、グローブに関わる情報や人をつなぎ、<br class="desktop-only">
+            「グローブのことなら、まずGlobaseを見る」<br class="desktop-only">
+            <span class="vision-place">
+              場所を目指します。
+            </span>
           </p>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- Name -->
+
+    <!-- =========================
+         Glove + Base
+    ========================== -->
+
     <section class="name-section">
+
       <div class="container name-grid">
 
-        <div class="name-title">
-          Glove + Base
+        <div class="name-message">
+          最初のひとつから、<br>
+          最高の相棒まで。
         </div>
 
-        <div class="name-copy">
-          <span class="name-line">グローブを知るための基礎。</span>
-          <span class="name-line">グローブの情報が集まる基地。</span>
-          <span class="name-line"><span class="phrase">Globaseは、</span><span class="phrase">グローブを選ぶための「Base」を目指しています。</span></span>
+        <div>
+
+          <h2 class="name-title">
+            Glove + Base
+          </h2>
+
+          <div class="name-copy">
+
+            <p>
+              グローブを知るための基礎。
+            </p>
+
+            <p>
+              グローブの情報が集まる基地。
+            </p>
+
+            <p>
+              Globaseは、<br>
+              <span class="vision-goal">
+                グローブを選ぶための「Base」を目指しています。
+              </span>
+            </p>
+
+          </div>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- Download -->
-    <section class="download">
+
+    <!-- =========================
+         Download
+    ========================== -->
+
+    <section
+      class="download"
+      id="download"
+    >
+
       <div class="container download-grid">
 
-        <h2 class="download-title brand-message-bottom">
-          <span>最初のひとつから、</span>
-          <span>最高の相棒まで。</span>
+        <h2 class="download-title">
+          自分に合ったグローブを、<br>
+          自分で選ぼう。
         </h2>
 
         <div class="download-brand">
-          <img src="assets/app-icon.png" alt="Globase">
+
+          <img
+            src="assets/app-icon.png"
+            alt="Globase"
+            loading="lazy"
+          >
 
           <div>
-            <strong>Globase</strong>
-            <span>グローブ選びを、もっとシンプルに。</span>
+
+            <strong>
+              Globase
+            </strong>
+
+            <span>
+              グローブ選びを、もっとシンプルに。
+            </span>
+
           </div>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
+
+    <!-- =========================
+         Contact
+    ========================== -->
+
+    <section
+      class="contact"
+      id="contact"
+    >
+
       <div class="container contact-grid">
 
         <div>
-          <div class="section-kicker">Contact</div>
-          <h2>お問い合わせ</h2>
+
+          <div class="section-kicker">
+            CONTACT
+          </div>
+
+          <h2>
+            お問い合わせ
+          </h2>
+
         </div>
 
-        <p>
-          <span class="contact-line">Globaseに関するお問い合わせ、</span>
-          <span class="contact-line">掲載・連携についてのご相談など、</span>
-          <span class="contact-line">お気軽にご連絡ください。</span>
-        </p>
+        <div>
 
-        <a
-          class="outline-button"
-          href="mailto:globase.app@gmail.com"
-        >
-          メールで問い合わせる →
-        </a>
+          <p>
+            Globaseに関するお問い合わせ、<br>
+            掲載・連携についてのご相談など、<br>
+            お気軽にご連絡ください。
+          </p>
+
+          <a
+            class="contact-button"
+            href="mailto:globase.app@gmail.com"
+          >
+            メールで問い合わせる →
+          </a>
+
+        </div>
 
       </div>
+
     </section>
 
   </main>
 
-  <!-- Footer -->
+
+  <!-- =========================
+       Footer
+  ========================== -->
+
   <footer>
+
     <div class="container footer-inner">
 
       <div class="footer-brand">
-        <img src="assets/app-icon.png" alt="">
         Globase
       </div>
 
       <div class="footer-links">
-        <a
-          href="privacy.html"
-        >
+
+        <a href="privacy.html">
           プライバシーポリシー
         </a>
 
@@ -1800,952 +2295,520 @@
           お問い合わせ
         </a>
 
-        <span>© 2026 Globase.</span>
+      </div>
+
+      <div class="copyright">
+        © 2026 Globase
       </div>
 
     </div>
+
   </footer>
 
-  <script>
-    /* =========================
-       Hero Slider
-    ========================= */
 
-    const track = document.getElementById("phoneTrack");
-    const dots = [...document.querySelectorAll(".slider-dot")];
-    const prev = document.querySelector(".slider-arrow.prev");
-    const next = document.querySelector(".slider-arrow.next");
+  <!-- =========================
+       JavaScript
+  ========================== -->
+
+  <script>
+
+    // ==========================================
+    // Search carousel
+    // ==========================================
+
+    const phoneTrack =
+      document.querySelector(".phone-track");
+
+    const phoneSlides =
+      Array.from(
+        document.querySelectorAll(".phone-slide")
+      );
+
+    const sliderDots =
+      Array.from(
+        document.querySelectorAll(".slider-dot")
+      );
+
+    const prevButton =
+      document.querySelector(".slider-arrow.prev");
+
+    const nextButton =
+      document.querySelector(".slider-arrow.next");
 
     let currentSlide = 0;
-    const slideCount = 4;
 
-    function showSlide(index) {
-      currentSlide = (index + slideCount) % slideCount;
 
-      track.style.transform =
+    function updateSlider() {
+
+      if (!phoneTrack) return;
+
+      phoneTrack.style.transform =
         `translateX(-${currentSlide * 100}%)`;
 
-      dots.forEach((dot, index) => {
-        dot.classList.toggle(
-          "active",
-          index === currentSlide
-        );
-      });
+      sliderDots.forEach(
+        (dot, index) => {
+
+          dot.classList.toggle(
+            "active",
+            index === currentSlide
+          );
+
+        }
+      );
+
     }
 
-    prev.addEventListener("click", () => {
-      showSlide(currentSlide - 1);
-    });
 
-    next.addEventListener("click", () => {
-      showSlide(currentSlide + 1);
-    });
+    function goToSlide(index) {
 
-    dots.forEach(dot => {
-      dot.addEventListener("click", () => {
-        showSlide(Number(dot.dataset.slide));
-      });
-    });
+      if (index < 0) {
+        currentSlide =
+          phoneSlides.length - 1;
+      }
 
-    /* Swipe */
+      else if (
+        index >= phoneSlides.length
+      ) {
+        currentSlide = 0;
+      }
+
+      else {
+        currentSlide = index;
+      }
+
+      updateSlider();
+
+    }
+
+
+    if (prevButton) {
+
+      prevButton.addEventListener(
+        "click",
+        () => {
+
+          goToSlide(
+            currentSlide - 1
+          );
+
+        }
+      );
+
+    }
+
+
+    if (nextButton) {
+
+      nextButton.addEventListener(
+        "click",
+        () => {
+
+          goToSlide(
+            currentSlide + 1
+          );
+
+        }
+      );
+
+    }
+
+
+    sliderDots.forEach(
+      (dot, index) => {
+
+        dot.addEventListener(
+          "click",
+          () => {
+
+            goToSlide(index);
+
+          }
+        );
+
+      }
+    );
+
+
+    // Swipe support
+
+    const phoneFrame =
+      document.querySelector(".phone-frame");
+
     let touchStartX = 0;
     let touchEndX = 0;
 
-    track.addEventListener(
-      "touchstart",
-      event => {
-        touchStartX = event.changedTouches[0].screenX;
-      },
-      { passive: true }
-    );
 
-    track.addEventListener(
-      "touchend",
-      event => {
-        touchEndX = event.changedTouches[0].screenX;
+    if (phoneFrame) {
 
-        const distance = touchStartX - touchEndX;
+      phoneFrame.addEventListener(
+        "touchstart",
+        (event) => {
 
-        if (Math.abs(distance) < 40) return;
+          touchStartX =
+            event.changedTouches[0].screenX;
 
-        if (distance > 0) {
-          showSlide(currentSlide + 1);
-        } else {
-          showSlide(currentSlide - 1);
+        },
+        {
+          passive: true
         }
-      },
-      { passive: true }
+      );
+
+
+      phoneFrame.addEventListener(
+        "touchend",
+        (event) => {
+
+          touchEndX =
+            event.changedTouches[0].screenX;
+
+          const difference =
+            touchStartX - touchEndX;
+
+          if (
+            Math.abs(difference) < 45
+          ) {
+            return;
+          }
+
+          if (difference > 0) {
+
+            goToSlide(
+              currentSlide + 1
+            );
+
+          }
+
+          else {
+
+            goToSlide(
+              currentSlide - 1
+            );
+
+          }
+
+        },
+        {
+          passive: true
+        }
+      );
+
+    }
+
+
+    // ==========================================
+    // Desktop features
+    // ==========================================
+
+    const featureButtons =
+      Array.from(
+        document.querySelectorAll(
+          ".feature-selector-button"
+        )
+      );
+
+    const featurePanels =
+      Array.from(
+        document.querySelectorAll(
+          ".feature-panel"
+        )
+      );
+
+
+    featureButtons.forEach(
+      (button) => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const feature =
+              button.dataset.feature;
+
+            featureButtons.forEach(
+              (item) => {
+
+                item.classList.toggle(
+                  "active",
+                  item === button
+                );
+
+              }
+            );
+
+            featurePanels.forEach(
+              (panel) => {
+
+                panel.classList.toggle(
+                  "active",
+                  panel.dataset.panel === feature
+                );
+
+              }
+            );
+
+          }
+        );
+
+      }
     );
 
-    /* =========================
-       Desktop Feature Hover
-    ========================= */
 
-    const featureTabs =
-      [...document.querySelectorAll(".feature-tab")];
+    // ==========================================
+    // Mobile features
+    // ==========================================
 
-    const featureContents =
-      [...document.querySelectorAll(".feature-content")];
+    const mobileFeatureTabs =
+      Array.from(
+        document.querySelectorAll(
+          ".mobile-feature-tab"
+        )
+      );
 
-    function showFeature(name) {
-      featureTabs.forEach(tab => {
-        tab.classList.toggle(
-          "active",
-          tab.dataset.feature === name
+    const mobileFeaturePanels =
+      Array.from(
+        document.querySelectorAll(
+          ".mobile-feature-content"
+        )
+      );
+
+
+    mobileFeatureTabs.forEach(
+      (tab) => {
+
+        tab.addEventListener(
+          "click",
+          () => {
+
+            const feature =
+              tab.dataset.mobileFeature;
+
+            mobileFeatureTabs.forEach(
+              (item) => {
+
+                item.classList.toggle(
+                  "active",
+                  item === tab
+                );
+
+              }
+            );
+
+            mobileFeaturePanels.forEach(
+              (panel) => {
+
+                panel.classList.toggle(
+                  "active",
+                  panel.dataset.mobilePanel === feature
+                );
+
+              }
+            );
+
+          }
         );
-      });
 
-      featureContents.forEach(content => {
-        content.classList.toggle(
-          "active",
-          content.dataset.content === name
+      }
+    );
+
+
+    // ==========================================
+    // Mobile drawer
+    // ==========================================
+
+    const menuButton =
+      document.querySelector(
+        ".mobile-menu-button"
+      );
+
+    const drawer =
+      document.querySelector(
+        ".mobile-drawer"
+      );
+
+    const drawerClose =
+      document.querySelector(
+        ".mobile-drawer-close"
+      );
+
+    const drawerBackdrop =
+      document.querySelector(
+        ".mobile-menu-backdrop"
+      );
+
+    const drawerLinks =
+      Array.from(
+        document.querySelectorAll(
+          ".mobile-drawer-nav a"
+        )
+      );
+
+
+    function openDrawer() {
+
+      if (
+        !drawer ||
+        !drawerBackdrop ||
+        !menuButton
+      ) {
+        return;
+      }
+
+      drawer.classList.add("open");
+
+      drawerBackdrop.classList.add(
+        "open"
+      );
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    function closeDrawer() {
+
+      if (
+        !drawer ||
+        !drawerBackdrop ||
+        !menuButton
+      ) {
+        return;
+      }
+
+      drawer.classList.remove("open");
+
+      drawerBackdrop.classList.remove(
+        "open"
+      );
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    if (menuButton) {
+
+      menuButton.addEventListener(
+        "click",
+        openDrawer
+      );
+
+    }
+
+
+    if (drawerClose) {
+
+      drawerClose.addEventListener(
+        "click",
+        closeDrawer
+      );
+
+    }
+
+
+    if (drawerBackdrop) {
+
+      drawerBackdrop.addEventListener(
+        "click",
+        closeDrawer
+      );
+
+    }
+
+
+    drawerLinks.forEach(
+      (link) => {
+
+        link.addEventListener(
+          "click",
+          closeDrawer
         );
-      });
-    }
 
-    featureTabs.forEach(tab => {
-      tab.addEventListener("mouseenter", () => {
-        showFeature(tab.dataset.feature);
-      });
+      }
+    );
 
-      tab.addEventListener("focus", () => {
-        showFeature(tab.dataset.feature);
-      });
 
-      tab.addEventListener("click", () => {
-        showFeature(tab.dataset.feature);
-      });
-    });
+    document.addEventListener(
+      "keydown",
+      (event) => {
 
-    /* =========================
-       Mobile Feature Tabs
-    ========================= */
+        if (
+          event.key === "Escape"
+        ) {
+          closeDrawer();
+        }
 
-    const mobileItems = [...document.querySelectorAll("[data-mobile-feature]")];
-    const mobileNavItems = [...document.querySelectorAll("[data-mobile-nav]")];
+      }
+    );
 
-    function showMobileFeature(name) {
-      mobileNavItems.forEach(item => {
-        const active = item.dataset.mobileNav === name;
-        item.classList.toggle("active", active);
-        item.setAttribute("aria-selected", String(active));
-      });
 
-      mobileItems.forEach(item => {
-        item.classList.toggle("active", item.dataset.mobileFeature === name);
-      });
-    }
+    // ==========================================
+    // Smooth internal links
+    // ==========================================
 
-    mobileNavItems.forEach(item => {
-      item.addEventListener("click", () => showMobileFeature(item.dataset.mobileNav));
-    });
+    const internalLinks =
+      Array.from(
+        document.querySelectorAll(
+          'a[href^="#"]'
+        )
+      );
 
-    /* =========================
-       Mobile Drawer
-    ========================= */
 
-    const menuButton = document.querySelector(".mobile-menu-button");
-    const drawer = document.querySelector(".mobile-drawer");
-    const drawerClose = document.querySelector(".mobile-drawer-close");
-    const backdrop = document.querySelector(".mobile-menu-backdrop");
-    const drawerLinks = [...document.querySelectorAll(".mobile-drawer a")];
+    internalLinks.forEach(
+      (link) => {
 
-    function setDrawer(open) {
-      drawer.classList.toggle("open", open);
-      backdrop.classList.toggle("open", open);
-      menuButton.setAttribute("aria-expanded", String(open));
-      document.body.style.overflow = open ? "hidden" : "";
-    }
+        link.addEventListener(
+          "click",
+          (event) => {
 
-    menuButton.addEventListener("click", () => setDrawer(true));
-    drawerClose.addEventListener("click", () => setDrawer(false));
-    backdrop.addEventListener("click", () => setDrawer(false));
-    drawerLinks.forEach(link => link.addEventListener("click", () => setDrawer(false)));
+            const targetId =
+              link.getAttribute("href");
 
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && drawer.classList.contains("open")) setDrawer(false);
-    });
+            if (
+              !targetId ||
+              targetId === "#"
+            ) {
+              return;
+            }
+
+            const target =
+              document.querySelector(
+                targetId
+              );
+
+            if (!target) {
+              return;
+            }
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          }
+        );
+
+      }
+    );
+
+
+    // Initial state
+    updateSlider();
 
   </script>
 
-
-<style>
-/* =========================================================
-   Hero visual finish — structure stays the same.
-   ========================================================= */
-.hero {
-  position: relative;
-  isolation: isolate;
-}
-
-/* A restrained glow, not a decorative circle. */
-.hero::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 520px;
-  height: 520px;
-  right: 7%;
-  bottom: -185px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(8, 151, 155, 0.085) 0%,
-    rgba(8, 151, 155, 0.035) 42%,
-    rgba(8, 151, 155, 0) 72%
-  );
-  pointer-events: none;
-}
-
-.hero-description-group {
-  max-width: 650px;
-  margin-bottom: 28px;
-}
-
-.hero-description-group .hero-description {
-  margin-bottom: 10px;
-}
-
-.hero-benefit {
-  position: relative;
-  display: inline-block;
-  padding-left: 18px;
-  color: #666b70;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.8;
-  letter-spacing: 0.005em;
-}
-
-.hero-benefit::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.42em;
-  bottom: 0.42em;
-  width: 3px;
-  border-radius: 999px;
-  background: var(--teal);
-  opacity: 0.72;
-}
-
-.hero .primary-button {
-  min-width: 136px;
-  min-height: 54px;
-  box-shadow: 0 10px 24px rgba(8, 151, 155, 0.14);
-}
-
-/* Slightly stronger phone separation from the white page. */
-.hero-demo .phone-frame {
-  box-shadow:
-    0 34px 72px rgba(0, 0, 0, 0.14),
-    0 8px 22px rgba(0, 0, 0, 0.08);
-}
-
-@media (min-width: 901px) {
-  .hero {
-    /* Keep the intentional crop, but remove the "ran out of room" feeling. */
-    padding-top: 88px;
-    padding-bottom: 24px;
-  }
-
-  .hero-grid {
-    align-items: start;
-  }
-
-  .hero-demo {
-    /* User requested a small move back to the right. */
-    right: 185px;
-    top: 132px;
-    min-height: 500px;
-  }
-
-  .hero-demo .phone-frame {
-    width: 315px;
-  }
-
-  /* Keep the Why copy on deliberate, readable lines. */
-  .problem-copy {
-    max-width: 620px;
-  }
-
-  .problem-copy span {
-    display: block;
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero::after {
-    width: 380px;
-    height: 380px;
-    right: -145px;
-    bottom: -90px;
-  }
-
-  .hero-benefit {
-    display: block;
-    max-width: 100%;
-  }
-}
-</style>
-
-
-<style>
-/* =========================================================
-   Final Hero direction
-   1st headline line owns the full width.
-   Phone begins only below that line and enters beside line 2.
-   ========================================================= */
-.hero-benefit {
-  padding-left: 0 !important;
-  font-weight: 500 !important;
-}
-.hero-benefit::before {
-  display: none !important;
-}
-
-@media (min-width: 901px) {
-  .hero {
-    padding-top: 88px;
-    padding-bottom: 30px;
-  }
-
-  .hero-grid {
-    position: relative;
-    display: block;
-    min-height: 600px;
-  }
-
-  .hero-grid > div:first-child {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-  }
-
-  .hero-title {
-    width: 100%;
-    max-width: none;
-  }
-
-  .hero-title span:first-child {
-    display: block;
-    width: 100%;
-    white-space: nowrap;
-  }
-
-  .hero-title span:nth-child(2) {
-    display: block;
-    width: max-content;
-    white-space: nowrap;
-  }
-
-  /* Phone starts completely below headline line 1,
-     then occupies the open space to the right of line 2. */
-  .hero-demo {
-    position: absolute;
-    z-index: 1;
-    top: 194px;
-    left: 500px;
-    right: auto;
-    width: 520px;
-    min-height: 520px;
-    transform: none;
-  }
-
-  .hero-demo .phone-stage {
-    width: 470px;
-    max-width: none;
-  }
-
-  .hero-demo .phone-frame {
-    width: 315px;
-  }
-
-  /* Make carousel affordance visible in the initial viewport. */
-  .hero-demo .slider-arrow {
-    top: 37%;
-  }
-
-  .hero-description-group {
-    width: 510px;
-    max-width: 510px;
-    margin-top: 28px;
-    margin-bottom: 24px;
-  }
-
-  .hero .primary-button {
-    margin-top: 0;
-  }
-}
-
-@media (min-width: 1180px) {
-  .hero-demo {
-    left: 520px;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-grid {
-    display: grid;
-  }
-
-  .hero-benefit {
-    padding-left: 0 !important;
-  }
-}
-</style>
-
-
-<style>
-/* =========================================================
-   Hero typography emphasis
-   Make line 1 visually own the viewport width.
-   ========================================================= */
-@media (min-width: 901px) {
-  .hero {
-    overflow: hidden;
-  }
-
-  .hero-title {
-    margin-right: -20px;
-  }
-
-  .hero-title span:first-child {
-    font-size: clamp(72px, 6.25vw, 96px);
-    line-height: 0.98;
-    letter-spacing: -0.065em;
-    transform-origin: left center;
-  }
-
-  .hero-title span:nth-child(2) {
-    font-size: clamp(72px, 6.25vw, 96px);
-    line-height: 1.02;
-    letter-spacing: -0.065em;
-    margin-top: 5px;
-  }
-
-  /* Phone starts beside line 2, never beside line 1. */
-  .hero-demo {
-    top: 210px;
-    left: 545px;
-    width: 500px;
-  }
-
-  .hero-demo .phone-stage {
-    width: 455px;
-  }
-
-  .hero-demo .phone-frame {
-    width: 315px;
-  }
-
-  /* Bring arrows closer to the phone so carousel is obvious. */
-  .hero-demo .slider-arrow.prev,
-  .hero-demo .slider-arrow.left,
-  .hero-demo .slider-arrow:first-of-type {
-    left: 22px;
-  }
-
-  .hero-demo .slider-arrow.next,
-  .hero-demo .slider-arrow.right,
-  .hero-demo .slider-arrow:last-of-type {
-    right: 22px;
-  }
-
-  .hero-description-group {
-    margin-top: 34px;
-  }
-}
-
-/* At narrower desktop widths, preserve the two-line composition. */
-@media (min-width: 901px) and (max-width: 1180px) {
-  .hero-title span:first-child,
-  .hero-title span:nth-child(2) {
-    font-size: clamp(68px, 6.05vw, 82px);
-  }
-
-  .hero-demo {
-    left: 500px;
-  }
-}
-</style>
-
-
-<style>
-/* =========================================================
-   Hero density + typography refinement
-   ========================================================= */
-@media (min-width: 901px) {
-  /* Reduce the empty band below the fixed header. */
-  .hero {
-    padding-top: 34px !important;
-  }
-
-  /* Bring the section label closer to the headline. */
-  .hero .eyebrow,
-  .hero .section-label {
-    margin-bottom: 12px !important;
-  }
-
-  /* Let line 1 breathe horizontally instead of only scaling up. */
-  .hero-title {
-    width: calc(100vw - 72px) !important;
-    max-width: none !important;
-  }
-
-  .hero-title span:first-child {
-    font-size: clamp(76px, 6.45vw, 100px) !important;
-    letter-spacing: -0.052em !important;
-    line-height: 0.98 !important;
-  }
-
-  /* Give the two headline lines a clearer visual separation. */
-  .hero-title span:nth-child(2) {
-    font-size: clamp(76px, 6.45vw, 100px) !important;
-    letter-spacing: -0.052em !important;
-    line-height: 1 !important;
-    margin-top: 18px !important;
-  }
-
-  /* Keep phone beside line 2, while the whole composition moves upward. */
-  .hero-demo {
-    top: 190px !important;
-    left: 545px !important;
-  }
-
-  /* Keep the supporting copy compact after pulling the hero upward. */
-  .hero-description-group {
-    margin-top: 28px !important;
-  }
-}
-
-@media (min-width: 901px) and (max-width: 1180px) {
-  .hero-title span:first-child,
-  .hero-title span:nth-child(2) {
-    font-size: clamp(70px, 6.15vw, 86px) !important;
-  }
-
-  .hero-demo {
-    left: 500px !important;
-  }
-}
-</style>
-
-
-<style>
-/* =========================================================
-   Hero final balance
-   - Keep the tighter top
-   - Make line 1 genuinely wider
-   - Restore the deeper phone crop
-   ========================================================= */
-@media (min-width: 901px) {
-  .hero {
-    padding-top: 34px !important;
-    padding-bottom: 92px !important;
-    min-height: 720px !important;
-    overflow: hidden !important;
-  }
-
-  .hero-grid {
-    min-height: 660px !important;
-  }
-
-  /* Stronger horizontal impact without moving the phone into line 1. */
-  .hero-title {
-    width: calc(100vw - 46px) !important;
-    max-width: none !important;
-  }
-
-  .hero-title span:first-child {
-    font-size: clamp(80px, 7.15vw, 110px) !important;
-    line-height: .96 !important;
-    letter-spacing: -0.06em !important;
-    white-space: nowrap !important;
-  }
-
-  .hero-title span:nth-child(2) {
-    font-size: clamp(78px, 6.65vw, 104px) !important;
-    line-height: 1 !important;
-    letter-spacing: -0.055em !important;
-    margin-top: 20px !important;
-    white-space: nowrap !important;
-  }
-
-  /* Restore the taller visible phone area from the earlier composition. */
-  .hero-demo {
-    top: 205px !important;
-    left: 545px !important;
-    width: 510px !important;
-    min-height: 610px !important;
-  }
-
-  .hero-demo .phone-stage {
-    width: 465px !important;
-    max-width: none !important;
-  }
-
-  .hero-demo .phone-frame {
-    width: 315px !important;
-  }
-
-  /* Keep carousel controls visible immediately. */
-  .hero-demo .slider-arrow {
-    top: 42% !important;
-  }
-
-  .hero-description-group {
-    margin-top: 30px !important;
-  }
-}
-
-@media (min-width: 901px) and (max-width: 1180px) {
-  .hero-title span:first-child {
-    font-size: clamp(72px, 6.55vw, 92px) !important;
-  }
-
-  .hero-title span:nth-child(2) {
-    font-size: clamp(70px, 6.15vw, 88px) !important;
-  }
-
-  .hero-demo {
-    left: 500px !important;
-  }
-}
-</style>
-
-
-<style>
-/* =========================================================
-   Hero copy + Features navigation polish
-   ========================================================= */
-
-/* Supporting Hero sentence matches the main description. */
-.hero-benefit {
-  font-size: inherit !important;
-  line-height: inherit !important;
-  font-weight: inherit !important;
-  color: inherit !important;
-  letter-spacing: inherit !important;
-}
-
-/* Desktop: replace the large selected box with a clean editorial tab rail. */
-@media (min-width: 901px) {
-  .feature-tabs,
-  .features-tabs,
-  .feature-nav {
-    padding: 42px 22px 42px 24px !important;
-  }
-
-  .feature-tab,
-  .features-tab,
-  .feature-nav button {
-    position: relative !important;
-    display: flex !important;
-    align-items: center !important;
-    width: 100% !important;
-    min-height: 72px !important;
-    padding: 0 24px !important;
-    margin: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    color: #111 !important;
-    font-size: 21px !important;
-    font-weight: 700 !important;
-    text-align: left !important;
-    cursor: pointer !important;
-    transition: color .2s ease, transform .2s ease !important;
-  }
-
-  .feature-tab::after,
-  .features-tab::after,
-  .feature-nav button::after {
-    content: "" !important;
-    position: absolute !important;
-    left: 24px !important;
-    right: 24px !important;
-    bottom: 0 !important;
-    height: 1px !important;
-    background: #e6e8e9 !important;
-  }
-
-  .feature-tab:hover,
-  .features-tab:hover,
-  .feature-nav button:hover {
-    color: var(--teal) !important;
-    transform: translateX(3px) !important;
-  }
-
-  .feature-tab.active,
-  .feature-tab.is-active,
-  .features-tab.active,
-  .features-tab.is-active,
-  .feature-nav button.active,
-  .feature-nav button.is-active,
-  .feature-nav button[aria-selected="true"] {
-    color: var(--teal) !important;
-    background: transparent !important;
-  }
-
-  .feature-tab.active::before,
-  .feature-tab.is-active::before,
-  .features-tab.active::before,
-  .features-tab.is-active::before,
-  .feature-nav button.active::before,
-  .feature-nav button.is-active::before,
-  .feature-nav button[aria-selected="true"]::before {
-    content: "" !important;
-    position: absolute !important;
-    left: 0 !important;
-    top: 18px !important;
-    bottom: 18px !important;
-    width: 4px !important;
-    border-radius: 999px !important;
-    background: var(--teal) !important;
-  }
-
-  .feature-tab.active::after,
-  .feature-tab.is-active::after,
-  .features-tab.active::after,
-  .features-tab.is-active::after,
-  .feature-nav button.active::after,
-  .feature-nav button.is-active::after,
-  .feature-nav button[aria-selected="true"]::after {
-    height: 2px !important;
-    background: var(--teal) !important;
-  }
-}
-</style>
-
-
-<style>
-/* Mobile Features navigation — same visual language as desktop */
-@media (max-width: 900px) {
-  .mobile-feature-shell {
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-  }
-
-  .mobile-feature-nav {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 18px !important;
-    padding: 0 22px !important;
-    margin: 0 0 34px !important;
-    border: 0 !important;
-    background: transparent !important;
-  }
-
-  .mobile-feature-nav button {
-    position: relative !important;
-    min-height: 58px !important;
-    padding: 0 2px 12px !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    color: #8a8d91 !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    text-align: left !important;
-  }
-
-  .mobile-feature-nav button::before {
-    content: none !important;
-  }
-
-  .mobile-feature-nav button::after {
-    content: "" !important;
-    position: absolute !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    height: 1px !important;
-    border-radius: 999px !important;
-    background: #e1e4e5 !important;
-  }
-
-  .mobile-feature-nav button.active,
-  .mobile-feature-nav button[aria-selected="true"] {
-    color: var(--teal) !important;
-    background: transparent !important;
-  }
-
-  .mobile-feature-nav button.active::after,
-  .mobile-feature-nav button[aria-selected="true"]::after {
-    height: 3px !important;
-    background: var(--teal) !important;
-  }
-}
-</style>
-
 </body>
-</html><style>
-/* Final desktop positioning adjustment: keep phone below first headline line, move it left. */
-@media (min-width: 901px) {
-  .hero-demo {
-    right: 170px;
-    top: 132px;
-  }
-
-  /* Keep the Lab / Order / Link text block at exactly the same vertical position. */
-  .feature-content {
-    align-items: start;
-  }
-
-  .feature-copy {
-    box-sizing: border-box;
-    width: 100%;
-    height: 270px;
-    min-height: 270px;
-    margin-top: 92px;
-    align-self: start;
-  }
-
-  .feature-copy .section-kicker {
-    height: 28px;
-    min-height: 28px;
-    flex: 0 0 28px;
-  }
-
-  .feature-copy h3 {
-    box-sizing: border-box;
-    height: 92px;
-    min-height: 92px;
-    flex: 0 0 92px;
-  }
-
-  .feature-copy p {
-    box-sizing: border-box;
-    height: 118px;
-    min-height: 118px;
-    flex: 0 0 118px;
-    margin: 0;
-  }
-
-  .feature-phone {
-    align-self: end;
-    margin-top: 32px;
-  }
-}
-</style>
-
-<style>
-/* Hero polish: keep vertical placement, enlarge the existing phone and bring it left. */
-@media (min-width: 901px) {
-  .hero-demo {
-    right: 245px;
-    top: 132px;
-  }
-
-  .hero-demo .phone-frame {
-    width: 315px;
-  }
-
-  .hero-demo .phone-stage {
-    width: 470px;
-    max-width: none;
-  }
-}
-</style>
-
-<style>
-/* Hero final polish: preserve the approved composition, reduce dead space, and make the phone crop intentional. */
-.hero-description-group {
-  margin-bottom: 34px;
-}
-.hero-description-group .hero-description {
-  margin-bottom: 12px;
-}
-.hero-benefit {
-  max-width: 620px;
-  margin: 0;
-  color: #777b81;
-  font-size: 15px;
-  line-height: 1.85;
-}
-.problem-copy span {
-  display: block;
-}
-
-@media (min-width: 901px) {
-  .hero {
-    padding-bottom: 38px;
-  }
-
-  .hero-demo {
-    /* Slightly right of the previous version; vertical position stays approved. */
-    right: 210px;
-    top: 132px;
-    min-height: 520px;
-  }
-
-  .hero-demo .phone-frame {
-    width: 315px;
-  }
-
-  .hero-demo .phone-stage {
-    width: 470px;
-    max-width: none;
-  }
-
-  /* Keep each Why sentence together so “複雑になっ / ています” cannot occur. */
-  .problem-copy span {
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-description-group {
-    margin-bottom: 28px;
-  }
-  .hero-description-group .hero-description {
-    margin-bottom: 10px;
-  }
-  .hero-benefit {
-    font-size: 15px;
-    line-height: 1.8;
-  }
-  .problem-copy span {
-    white-space: normal;
-  }
-}
-</style>
-<style>
-/* Final copy + feature tab cleanup */
-.hero-benefit {
-  max-width: none !important;
-  margin: 0 !important;
-  color: #777b81 !important;
-  font-size: 18px !important;
-  line-height: 1.85 !important;
-  font-weight: 400 !important;
-  letter-spacing: 0 !important;
-}
-
-@media (min-width: 901px) {
-  /* Selected state: horizontal rule only. */
-  .feature-tab.active::before,
-  .feature-tab.is-active::before,
-  .features-tab.active::before,
-  .features-tab.is-active::before,
-  .feature-nav button.active::before,
-  .feature-nav button.is-active::before,
-  .feature-nav button[aria-selected="true"]::before {
-    content: none !important;
-    display: none !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-benefit {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-  }
-}
-</style>
+</html>
