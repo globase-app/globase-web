@@ -141,7 +141,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: minmax(0, 1fr) 390px;
       align-items: center;
       gap: 36px;
     }
@@ -155,11 +155,45 @@
     }
 
     h1 {
-      font-size: clamp(48px, 5.1vw, 72px);
+      font-size: clamp(56px, 4.55vw, 68px);
       line-height: 1.08;
       letter-spacing: -0.055em;
       font-weight: 800;
       margin-bottom: 28px;
+    }
+
+    .hero-title span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .problem-title span,
+    .vision-title span,
+    .name-message span,
+    .download-title span,
+    .name-line,
+    .contact-line {
+      display: block;
+    }
+
+    .problem-title span,
+    .vision-title span,
+    .name-message span,
+    .download-title span {
+      white-space: nowrap;
+    }
+
+    .phrase {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .feature-heading-line {
+      display: inline;
+    }
+
+    .feature-heading-line + .feature-heading-line::before {
+      content: " ";
     }
 
     .hero-description {
@@ -850,8 +884,8 @@
       .hero-demo { transform: none; }
 
       h1 {
-        font-size: clamp(40px, 10.7vw, 58px);
-        letter-spacing: -0.05em;
+        font-size: clamp(34px, 8.9vw, 46px);
+        letter-spacing: -0.055em;
       }
 
       .desktop-only-break { display: none; }
@@ -1044,7 +1078,7 @@
       }
 
       h1 {
-        font-size: clamp(38px, 10.4vw, 46px);
+        font-size: clamp(33px, 8.8vw, 43px);
       }
 
       .section-title {
@@ -1068,7 +1102,46 @@
         line-height: 1.45;
       }
 
+      .name-message br {
+        display: block;
+      }
+
       .mobile-feature-copy h3 { font-size: 28px; }
+
+      .mobile-feature-copy .feature-heading-line {
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      .mobile-feature-copy .feature-heading-line + .feature-heading-line::before {
+        content: " ";
+      }
+
+      .vision-copy {
+        font-size: 16px;
+        line-height: 2;
+      }
+
+      .vision-copy .phrase {
+        white-space: nowrap;
+      }
+
+      .name-copy {
+        padding-left: 22px;
+      }
+
+      .name-copy .name-line {
+        margin-bottom: 2px;
+      }
+
+      .name-copy .phrase {
+        white-space: nowrap;
+      }
+
+      .contact-line {
+        width: fit-content;
+        max-width: 100%;
+      }
 
       .steps {
         grid-template-columns: 1fr 1fr;
@@ -1090,6 +1163,28 @@
 
       .download-title {
         font-size: 30px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .problem .section-title {
+        font-size: 30px;
+      }
+
+      .name-message {
+        font-size: 26px;
+      }
+
+      .vision-copy {
+        font-size: 15px;
+      }
+
+      .name-copy {
+        font-size: 15px;
+      }
+
+      .mobile-feature-copy h3 {
+        font-size: 27px;
       }
     }
   </style>
@@ -1145,9 +1240,9 @@
         <div>
           <div class="eyebrow">Search</div>
 
-          <h1>
-            自分に合ったグローブを、<br>
-            自分で選ぶ。
+          <h1 class="hero-title">
+            <span>自分に合ったグローブを、</span>
+            <span>自分で選ぶ。</span>
           </h1>
 
           <p class="hero-description">
@@ -1217,9 +1312,9 @@
         <div>
           <div class="section-kicker">Why Globase</div>
 
-          <h2 class="section-title">
-            選択肢が増えたからこそ、<br>
-            選ぶのは難しい。
+          <h2 class="section-title problem-title">
+            <span>選択肢が増えたからこそ、</span>
+            <span>選ぶのは難しい。</span>
           </h2>
 
           <p class="section-text">
@@ -1302,7 +1397,7 @@
             <div class="feature-content active" data-content="lab">
               <div class="feature-copy">
                 <div class="section-kicker">Lab</div>
-                <h3>グローブをもっと知る。</h3>
+                <h3><span class="feature-heading-line">グローブをもっと知る。</span></h3>
                 <p>
                   選び方の基礎知識、ポジションごとの特徴、
                   購入時期の考え方など、
@@ -1319,7 +1414,7 @@
             <div class="feature-content" data-content="order">
               <div class="feature-copy">
                 <div class="section-kicker">Order</div>
-                <h3>自分だけのグローブを探す。</h3>
+                <h3><span class="feature-heading-line">自分だけのグローブを</span><span class="feature-heading-line">探す。</span></h3>
                 <p>
                   各メーカーのオーダー情報をまとめて確認できます。
                   既製品だけではなく、
@@ -1335,7 +1430,7 @@
             <div class="feature-content" data-content="link">
               <div class="feature-copy">
                 <div class="section-kicker">Link</div>
-                <h3>グローブと、必要な情報をつなぐ。</h3>
+                <h3><span class="feature-heading-line">グローブと、</span><span class="feature-heading-line">必要な情報をつなぐ。</span></h3>
                 <p>
                   リーグやカテゴリーごとのルールなど、
                   グローブを使うために必要な情報へアクセスできます。
@@ -1366,7 +1461,7 @@
           <article class="mobile-feature-item active" data-mobile-feature="lab">
             <div class="mobile-feature-copy">
               <div class="section-kicker">Lab</div>
-              <h3>グローブをもっと知る。</h3>
+              <h3><span class="feature-heading-line">グローブをもっと知る。</span></h3>
               <p>選び方の基礎知識やポジションごとの特徴など、グローブに関する知識を分かりやすくまとめています。</p>
             </div>
             <div class="mobile-feature-image"><img src="assets/lab.png" alt="Globase Lab" loading="lazy" decoding="async"></div>
@@ -1375,7 +1470,7 @@
           <article class="mobile-feature-item" data-mobile-feature="order">
             <div class="mobile-feature-copy">
               <div class="section-kicker">Order</div>
-              <h3>自分だけのグローブを探す。</h3>
+              <h3><span class="feature-heading-line">自分だけのグローブを</span><span class="feature-heading-line">探す。</span></h3>
               <p>各メーカーのオーダー情報をまとめて確認し、自分のこだわりを形にする選択肢へつなげます。</p>
             </div>
             <div class="mobile-feature-image"><img src="assets/order.png" alt="Globase Order" loading="lazy" decoding="async"></div>
@@ -1384,7 +1479,7 @@
           <article class="mobile-feature-item" data-mobile-feature="link">
             <div class="mobile-feature-copy">
               <div class="section-kicker">Link</div>
-              <h3>グローブと、必要な情報をつなぐ。</h3>
+              <h3><span class="feature-heading-line">グローブと、</span><span class="feature-heading-line">必要な情報をつなぐ。</span></h3>
               <p>リーグやカテゴリーごとのルールなど、グローブを使うために必要な情報へアクセスできます。</p>
             </div>
             <div class="mobile-feature-image"><img src="assets/link.png" alt="Globase Link" loading="lazy" decoding="async"></div>
@@ -1400,23 +1495,27 @@
         <div>
           <div class="section-kicker">Our Vision</div>
 
-          <h2 class="section-title">
-            グローブの情報が<br>
-            集まる場所へ。
+          <h2 class="section-title vision-title">
+            <span>グローブの情報が</span>
+            <span>集まる場所へ。</span>
           </h2>
         </div>
 
         <div class="vision-copy">
           <p>
-            商品を探す。知識を得る。オーダーを知る。
-            ルールを確認する。
-            そしてこれから、ショップやメーカーともつながっていく。
+            <span class="phrase">商品を探す。</span>
+            <span class="phrase">知識を得る。</span>
+            <span class="phrase">オーダーを知る。</span>
+            <span class="phrase">ルールを確認する。</span>
+            <span class="phrase">そしてこれから、</span>
+            <span class="phrase">ショップやメーカーともつながっていく。</span>
           </p>
 
           <p>
-            Globaseは、グローブに関わる情報や人をつなぎ、
-            「グローブのことなら、まずGlobaseを見る」
-            場所を目指します。
+            <span class="phrase">Globaseは、</span>
+            <span class="phrase">グローブに関わる情報や人をつなぎ、</span>
+            <span class="phrase">「グローブのことなら、まずGlobaseを見る」</span>
+            <span class="phrase">場所を目指します。</span>
           </p>
         </div>
 
@@ -1428,8 +1527,8 @@
       <div class="container name-grid">
 
         <div class="name-message">
-          最初のひとつから、<br>
-          最高の相棒まで。
+          <span>最初のひとつから、</span>
+          <span>最高の相棒まで。</span>
         </div>
 
         <div class="name-title">
@@ -1437,9 +1536,9 @@
         </div>
 
         <div class="name-copy">
-          グローブを知るための基礎。<br>
-          グローブの情報が集まる基地。<br>
-          Globaseは、グローブを選ぶための「Base」を目指しています。
+          <span class="name-line">グローブを知るための基礎。</span>
+          <span class="name-line">グローブの情報が集まる基地。</span>
+          <span class="name-line"><span class="phrase">Globaseは、</span><span class="phrase">グローブを選ぶための「Base」を目指しています。</span></span>
         </div>
 
       </div>
@@ -1450,8 +1549,8 @@
       <div class="container download-grid">
 
         <h2 class="download-title">
-          自分に合ったグローブを、<br>
-          自分で選ぼう。
+          <span>自分に合ったグローブを、</span>
+          <span>自分で選ぼう。</span>
         </h2>
 
         <div class="download-brand">
@@ -1476,9 +1575,9 @@
         </div>
 
         <p>
-          Globaseに関するお問い合わせ、
-          掲載・連携についてのご相談など、
-          お気軽にご連絡ください。
+          <span class="contact-line">Globaseに関するお問い合わせ、</span>
+          <span class="contact-line">掲載・連携についてのご相談など、</span>
+          <span class="contact-line">お気軽にご連絡ください。</span>
         </p>
 
         <a
