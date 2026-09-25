@@ -2271,6 +2271,67 @@
 }
 </style>
 
+
+<style>
+/* =========================================================
+   Hero density + typography refinement
+   ========================================================= */
+@media (min-width: 901px) {
+  /* Reduce the empty band below the fixed header. */
+  .hero {
+    padding-top: 34px !important;
+  }
+
+  /* Bring the section label closer to the headline. */
+  .hero .eyebrow,
+  .hero .section-label {
+    margin-bottom: 12px !important;
+  }
+
+  /* Let line 1 breathe horizontally instead of only scaling up. */
+  .hero-title {
+    width: calc(100vw - 72px) !important;
+    max-width: none !important;
+  }
+
+  .hero-title span:first-child {
+    font-size: clamp(76px, 6.45vw, 100px) !important;
+    letter-spacing: -0.052em !important;
+    line-height: 0.98 !important;
+  }
+
+  /* Give the two headline lines a clearer visual separation. */
+  .hero-title span:nth-child(2) {
+    font-size: clamp(76px, 6.45vw, 100px) !important;
+    letter-spacing: -0.052em !important;
+    line-height: 1 !important;
+    margin-top: 18px !important;
+  }
+
+  /* Keep phone beside line 2, while the whole composition moves upward. */
+  .hero-demo {
+    top: 190px !important;
+    left: 545px !important;
+  }
+
+  /* Keep the supporting copy compact after pulling the hero upward. */
+  .hero-description-group {
+    margin-top: 28px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .hero-title span:first-child,
+  .hero-title span:nth-child(2) {
+    font-size: clamp(70px, 6.15vw, 86px) !important;
+  }
+
+  .hero-demo {
+    left: 500px !important;
+  }
+}
+</style>
+
 </body>
 </html><style>
 /* Final desktop positioning adjustment: keep phone below first headline line, move it left. */
