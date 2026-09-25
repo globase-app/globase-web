@@ -1964,4 +1964,52 @@
   </script>
 
 </body>
-</html>
+</html><style>
+/* Final desktop positioning adjustment: keep phone below first headline line, move it left. */
+@media (min-width: 901px) {
+  .hero-demo {
+    right: 170px;
+    top: 132px;
+  }
+
+  /* Keep the Lab / Order / Link text block at exactly the same vertical position. */
+  .feature-content {
+    align-items: start;
+  }
+
+  .feature-copy {
+    box-sizing: border-box;
+    width: 100%;
+    height: 270px;
+    min-height: 270px;
+    margin-top: 92px;
+    align-self: start;
+  }
+
+  .feature-copy .section-kicker {
+    height: 28px;
+    min-height: 28px;
+    flex: 0 0 28px;
+  }
+
+  .feature-copy h3 {
+    box-sizing: border-box;
+    height: 92px;
+    min-height: 92px;
+    flex: 0 0 92px;
+  }
+
+  .feature-copy p {
+    box-sizing: border-box;
+    height: 118px;
+    min-height: 118px;
+    flex: 0 0 118px;
+    margin: 0;
+  }
+
+  .feature-phone {
+    align-self: end;
+    margin-top: 32px;
+  }
+}
+</style>
