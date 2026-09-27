@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Globaseは、グローブの情報をひとつの場所に集め、自分に合ったグローブを自分で選べるようにするプラットフォームです。">
+  <meta
+    name="description"
+    content="Globaseは、グローブの情報をひとつの場所に集め、自分に合ったグローブを自分で選べるようにするプラットフォームです。"
+  >
 
   <title>Globase | 自分に合ったグローブを、自分で選ぶ。</title>
 
@@ -65,6 +68,7 @@
       margin: 0 auto;
     }
 
+
     /* =========================
        Header
     ========================= */
@@ -121,14 +125,15 @@
     .nav-download {
       padding: 11px 21px;
       border-radius: 999px;
-      color: white;
+      color: #fff;
       background: var(--teal);
     }
 
     .nav-download:hover {
-      color: white;
+      color: #fff;
       background: var(--teal-dark);
     }
+
 
     /* =========================
        Hero
@@ -167,40 +172,11 @@
       white-space: nowrap;
     }
 
-    .problem-title span,
-    .vision-title span,
-    .name-message span,
-    .download-title span,
-    .name-line,
-    .contact-line {
-      display: block;
-    }
-
-    .problem-title span,
-    .vision-title span,
-    .name-message span,
-    .download-title span {
-      white-space: nowrap;
-    }
-
-    .phrase {
-      display: inline-block;
-      white-space: nowrap;
-    }
-
-    .feature-heading-line {
-      display: inline;
-    }
-
-    .feature-heading-line + .feature-heading-line::before {
-      content: " ";
-    }
-
     .hero-description {
       font-size: 18px;
       line-height: 1.9;
       color: #555960;
-      max-width: 520px;
+      max-width: 540px;
       margin-bottom: 34px;
     }
 
@@ -216,7 +192,7 @@
       min-height: 52px;
       padding: 0 26px;
       border-radius: 999px;
-      color: white;
+      color: #fff;
       background: var(--teal);
       font-size: 15px;
       font-weight: 700;
@@ -229,6 +205,7 @@
       background: var(--teal-dark);
       transform: translateY(-1px);
     }
+
 
     /* =========================
        Hero Slider
@@ -267,7 +244,7 @@
       display: flex;
       width: 100%;
       height: 100%;
-      transition: transform 0.45s cubic-bezier(.2,.75,.25,1);
+      transition: transform 0.45s cubic-bezier(.2, .75, .25, 1);
     }
 
     .phone-slide {
@@ -343,6 +320,7 @@
       font-size: 12px;
     }
 
+
     /* =========================
        Problem / Steps
     ========================= */
@@ -384,6 +362,10 @@
       color: #60646a;
       font-size: 16px;
       line-height: 1.9;
+    }
+
+    .why-text span {
+      display: block;
     }
 
     .steps {
@@ -432,8 +414,9 @@
       line-height: 1.7;
     }
 
+
     /* =========================
-       Features
+       Features - Desktop
     ========================= */
 
     .features {
@@ -471,7 +454,9 @@
       font-weight: 700;
       text-align: left;
       cursor: pointer;
-      transition: color 0.2s ease, background 0.2s ease;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
     }
 
     .feature-selector-button:hover,
@@ -541,6 +526,7 @@
       transform: translateY(-4.8%);
     }
 
+
     /* =========================
        Vision
     ========================= */
@@ -571,6 +557,7 @@
     .vision-copy p + p {
       margin-top: 22px;
     }
+
 
     /* =========================
        Name
@@ -615,6 +602,7 @@
       color: #656970;
       line-height: 1.9;
     }
+
 
     /* =========================
        Download
@@ -664,6 +652,7 @@
       font-size: 13px;
     }
 
+
     /* =========================
        Contact
     ========================= */
@@ -674,8 +663,8 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 0.7fr 1.3fr auto;
-      gap: 60px;
+      grid-template-columns: 0.75fr 1.2fr auto;
+      gap: 64px;
       align-items: center;
     }
 
@@ -684,10 +673,12 @@
       line-height: 1.3;
     }
 
-    .contact p {
+    .contact-description {
       border-left: 1px solid #d4d6da;
       padding-left: 50px;
       color: #696d73;
+      font-size: 15px;
+      line-height: 1.9;
     }
 
     .outline-button {
@@ -699,16 +690,22 @@
       border: 1px solid var(--teal);
       border-radius: 999px;
       color: var(--teal);
+      background: transparent;
       font-size: 14px;
       font-weight: 700;
       white-space: nowrap;
-      transition: all 0.2s ease;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
     }
 
     .outline-button:hover {
+      color: #fff;
       background: var(--teal);
-      color: white;
+      transform: translateY(-1px);
     }
+
 
     /* =========================
        Footer
@@ -716,31 +713,23 @@
 
     footer {
       border-top: 1px solid var(--line);
-      padding: 32px 0;
+      padding: 28px 0;
     }
 
     .footer-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 30px;
+      justify-content: center;
+      gap: 42px;
       color: #74787e;
       font-size: 12px;
+      white-space: nowrap;
     }
 
     .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 9px;
       color: var(--black);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 750;
-    }
-
-    .footer-brand img {
-      width: 30px;
-      height: 30px;
-      border-radius: 7px;
     }
 
     .footer-links {
@@ -749,8 +738,21 @@
       gap: 28px;
     }
 
+    .footer-links a {
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal);
+    }
+
+    .copyright {
+      margin: 0;
+    }
+
+
     /* =========================
-       Mobile Feature Scroll
+       Mobile
     ========================= */
 
     .mobile-features {
@@ -763,12 +765,7 @@
     .mobile-download-label {
       display: none;
     }
-
-    /* =========================
-       Responsive
-    ========================= */
-
-    @media (max-width: 900px) {
+        @media (max-width: 900px) {
 
       .container {
         width: min(calc(100% - 36px), var(--max-width));
@@ -889,6 +886,9 @@
         font-weight: 700;
       }
 
+
+      /* Hero */
+
       .hero {
         padding: 58px 0 0;
       }
@@ -913,6 +913,11 @@
         font-size: 16px;
         line-height: 1.9;
         margin-bottom: 28px;
+      }
+
+      .hero-description span {
+        display: block;
+        white-space: nowrap;
       }
 
       .hero-demo {
@@ -952,6 +957,9 @@
         display: none;
       }
 
+
+      /* Why Globase */
+
       .problem {
         padding: 75px 0;
       }
@@ -972,6 +980,10 @@
       .section-text {
         font-size: 16px;
         line-height: 2;
+      }
+
+      .why-text span {
+        display: block;
       }
 
       .steps {
@@ -998,9 +1010,15 @@
         margin: 0 auto;
       }
 
+
+      /* Desktop Features off */
+
       .features {
         display: none;
       }
+
+
+      /* Mobile Features */
 
       .mobile-features {
         display: block;
@@ -1105,6 +1123,9 @@
         transform: translateY(-4.8%);
       }
 
+
+      /* Vision */
+
       .vision {
         padding: 85px 0;
       }
@@ -1125,6 +1146,9 @@
       .vision-copy p + p {
         margin-top: 28px;
       }
+
+
+      /* Name */
 
       .name-section {
         padding: 80px 0;
@@ -1149,6 +1173,9 @@
         padding-left: 24px;
         line-height: 2;
       }
+
+
+      /* Download */
 
       .download {
         padding: 64px 0;
@@ -1177,6 +1204,9 @@
         font-size: 24px;
       }
 
+
+      /* Contact */
+
       .contact {
         padding: 70px 0;
       }
@@ -1189,29 +1219,51 @@
         margin-bottom: 32px;
       }
 
-      .contact p {
+      .contact-description {
         border-left: 0;
         padding-left: 0;
         margin-bottom: 34px;
+        font-size: 16px;
         line-height: 2;
       }
 
+
+      /* Footer - mobileも横一列 */
+
+      footer {
+        padding: 24px 0;
+      }
+
       .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        white-space: nowrap;
+        font-size: 10px;
+      }
+
+      .footer-brand {
+        font-size: 12px;
       }
 
       .footer-links {
-        flex-wrap: wrap;
-        gap: 15px 22px;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 14px;
       }
 
       .copyright {
-        margin-top: 2px;
+        margin: 0;
+        font-size: 10px;
       }
     }
-        @media (max-width: 560px) {
+
+
+    @media (max-width: 560px) {
 
       .container {
         width: min(calc(100% - 30px), var(--max-width));
@@ -1341,22 +1393,31 @@
         padding: 65px 0;
       }
 
+      /* iPhone幅でもFooterを横一列に維持 */
+
       footer {
-        padding: 28px 0;
+        padding: 22px 0;
       }
 
       .footer-inner {
-        gap: 18px;
+        gap: 9px;
+        font-size: 9px;
+      }
+
+      .footer-brand {
+        font-size: 11px;
       }
 
       .footer-links {
-        gap: 14px 20px;
+        gap: 9px;
       }
 
       .copyright {
-        margin-top: 2px;
+        margin: 0;
+        font-size: 9px;
       }
     }
+
 
     @media (min-width: 901px) {
 
@@ -1364,6 +1425,7 @@
         display: block;
       }
     }
+
 
     @media (max-width: 900px) {
 
@@ -1376,6 +1438,7 @@
 </head>
 
 <body>
+
 
   <!-- =========================
        Header
@@ -1402,6 +1465,7 @@
 
       </a>
 
+
       <nav>
 
         <a href="#home">
@@ -1424,6 +1488,7 @@
           class="nav-download"
           href="https://apps.apple.com/jp/app/globase/id6755428184"
         >
+
           <span class="desktop-download-label">
             App Storeで見る →
           </span>
@@ -1431,6 +1496,7 @@
           <span class="mobile-download-label">
             App Store
           </span>
+
         </a>
 
         <button
@@ -1448,7 +1514,9 @@
   </header>
 
 
-  <!-- Mobile menu -->
+  <!-- =========================
+       Mobile Menu
+  ========================== -->
 
   <div
     class="mobile-menu-backdrop"
@@ -1509,6 +1577,7 @@
 
 
   <main>
+
 
     <!-- =========================
          Hero / Search
@@ -1667,9 +1736,7 @@
       </div>
 
     </section>
-
-
-    <!-- =========================
+        <!-- =========================
          Why Globase
     ========================== -->
 
@@ -1684,19 +1751,25 @@
           </div>
 
           <h2 class="section-title">
-
             選択肢が増えたからこそ、<br>
             選ぶのは難しい。
-
           </h2>
 
-          <p class="section-text">
+          <p class="section-text why-text">
 
-            メーカーやモデルが増え、情報も分散し、<br class="desktop-only">
-            グローブ選びは以前より複雑になっています。<br class="desktop-only">
-            Globaseは、そんなグローブ選びを整理し、<br class="desktop-only">
+            <span>
+              メーカーやモデルが増え、情報も分散し、
+            </span>
 
-            <span class="why-last-line">
+            <span>
+              グローブ選びは以前より複雑になっています。
+            </span>
+
+            <span>
+              Globaseは、そんなグローブ選びを整理し、
+            </span>
+
+            <span>
               自分に合った一つを見つけるための道筋をつくります。
             </span>
 
@@ -1965,7 +2038,9 @@
       </div>
 
     </section>
-        <!-- =========================
+
+
+    <!-- =========================
          Features - Mobile
     ========================== -->
 
@@ -2174,9 +2249,7 @@
           <p>
             Globaseは、グローブに関わる情報や人をつなぎ、<br class="desktop-only">
             「グローブのことなら、まずGlobaseを見る」場所を<br class="desktop-only">
-            <span class="vision-place">
-              目指します。
-            </span>
+            目指します。
           </p>
 
         </div>
@@ -2219,9 +2292,7 @@
 
           <p>
             Globaseは、<br>
-            <span class="vision-goal">
-              グローブを選ぶための「Base」を目指しています。
-            </span>
+            グローブを選ぶための「Base」を目指しています。
           </p>
 
         </div>
@@ -2285,7 +2356,7 @@
 
       <div class="container contact-grid">
 
-        <div>
+        <div class="contact-heading">
 
           <div class="section-kicker">
             CONTACT
@@ -2297,22 +2368,18 @@
 
         </div>
 
-        <div>
+        <p class="contact-description">
+          Globaseに関するお問い合わせ、<br class="desktop-only">
+          掲載・連携についてのご相談など、<br class="desktop-only">
+          お気軽にご連絡ください。
+        </p>
 
-          <p>
-            Globaseに関するお問い合わせ、<br>
-            掲載・連携についてのご相談など、<br>
-            お気軽にご連絡ください。
-          </p>
-
-          <a
-            class="contact-button"
-            href="mailto:globase.app@gmail.com"
-          >
-            メールで問い合わせる →
-          </a>
-
-        </div>
+        <a
+          class="outline-button"
+          href="mailto:globase.app@gmail.com"
+        >
+          メールで問い合わせる →
+        </a>
 
       </div>
 
@@ -2352,9 +2419,7 @@
     </div>
 
   </footer>
-
-
-  <!-- =========================
+    <!-- =========================
        JavaScript
   ========================== -->
 
@@ -2556,6 +2621,7 @@
 
     // ==========================================
     // Desktop Features
+    // hover + click
     // ==========================================
 
     const featureButtons =
@@ -2573,36 +2639,60 @@
       );
 
 
+    function activateDesktopFeature(button) {
+
+      const feature =
+        button.dataset.feature;
+
+      featureButtons.forEach(
+        (item) => {
+
+          item.classList.toggle(
+            "active",
+            item === button
+          );
+
+        }
+      );
+
+      featurePanels.forEach(
+        (panel) => {
+
+          panel.classList.toggle(
+            "active",
+            panel.dataset.panel === feature
+          );
+
+        }
+      );
+
+    }
+
+
     featureButtons.forEach(
       (button) => {
 
+        // PC：
+        // カーソルを乗せるだけで切り替え
+        button.addEventListener(
+          "mouseenter",
+          () => {
+
+            activateDesktopFeature(
+              button
+            );
+
+          }
+        );
+
+
+        // クリック操作も残す
         button.addEventListener(
           "click",
           () => {
 
-            const feature =
-              button.dataset.feature;
-
-            featureButtons.forEach(
-              (item) => {
-
-                item.classList.toggle(
-                  "active",
-                  item === button
-                );
-
-              }
-            );
-
-            featurePanels.forEach(
-              (panel) => {
-
-                panel.classList.toggle(
-                  "active",
-                  panel.dataset.panel === feature
-                );
-
-              }
+            activateDesktopFeature(
+              button
             );
 
           }
@@ -2610,7 +2700,9 @@
 
       }
     );
-        // ==========================================
+
+
+    // ==========================================
     // Mobile Features
     // ==========================================
 
