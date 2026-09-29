@@ -1394,52 +1394,56 @@
        Desktop Hero
     ========================= */
 
-    @media (min-width: 901px) {
+   /* =========================
+   Desktop Hero
+========================= */
 
-      .hero-grid {
-        display: block;
-        position: relative;
-        min-height: 455px;
-      }
+@media (min-width: 901px) {
 
-      .hero-grid > div:first-child {
-        position: relative;
-        z-index: 2;
-      }
+  .hero-grid {
+    display: block;
+    position: relative;
+    min-height: 500px;
+  }
 
-      .hero-title {
-        position: relative;
-        z-index: 3;
-        width: 100%;
-        max-width: none;
-        padding-right: 0;
-        font-size: clamp(74px, 6.25vw, 92px);
-        line-height: 1.02;
-        letter-spacing: -0.06em;
-        margin-bottom: 34px;
-      }
+  .hero-grid > div:first-child {
+    position: relative;
+    z-index: 2;
+  }
 
-      .hero-title span:first-child {
-        width: max-content;
-        max-width: 100%;
-      }
+  .hero-title {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: none;
+    padding-right: 0;
+    font-size: clamp(74px, 6.25vw, 92px);
+    line-height: 1.02;
+    letter-spacing: -0.06em;
+    margin-bottom: 34px;
+  }
 
-      .hero-demo {
-        position: absolute;
-        right: 95px;
-        top: 132px;
-        z-index: 1;
-        width: 460px;
-      }
+  .hero-title span:first-child {
+    width: max-content;
+    max-width: 100%;
+  }
 
-      .hero-demo .phone-frame {
-        width: 340px;
-      }
+  .hero-demo {
+    position: absolute;
+    right: 135px;
+    top: 132px;
+    z-index: 1;
+    width: 500px;
+  }
 
-      .hero-description {
-        max-width: 560px;
-      }
-    }
+  .hero-demo .phone-frame {
+    width: 380px;
+  }
+
+  .hero-description {
+    max-width: 560px;
+  }
+}
   </style>
 </head>
 
